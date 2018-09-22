@@ -7,6 +7,9 @@ module RecipesHelper
   def cuisine_options
     [['', nil]] + Cuisine.order(:title).map { |c| [ c.title, c.id ] }
   end
+  def unit_options
+    [['', nil]] + Unit.order(:title).map { |c| [ c.title, c.id ] }
+  end
   def courses_menu
     safe_join(@courses.collect do |c|
       next if c.recipes_count == 0
@@ -65,5 +68,13 @@ module RecipesHelper
 
   def ordering_menu
     safe_join [order_by_title_li, order_by_created_at_li]
+  end
+
+  def rational_for_display(rational)
+    number = rational.to_r
+    if number.denominator == 1
+      return number.numerator
+    end
+    number
   end
 end

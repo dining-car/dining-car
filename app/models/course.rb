@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class Course < ApplicationRecord
-  has_many :recipes
+  has_many :recipes, inverse_of: :course
 
   validates :title, presence: true, uniqueness: { case_sensitive: false }
 

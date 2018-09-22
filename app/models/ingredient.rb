@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
 class Ingredient < ApplicationRecord
-  belongs_to :ingredient_group
-  belongs_to :unit, optional: true
+  belongs_to :ingredient_group, inverse_of: :ingredients
+  belongs_to :unit, optional: true, inverse_of: :ingredients
 
   validate :quantity_is_rational
 
