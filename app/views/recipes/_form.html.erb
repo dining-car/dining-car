@@ -36,21 +36,21 @@
       <div class="column is-half">
         <%= form.label :preparation_time, class: 'label' %>
         <div class="field has-addons">
-          <p class="control"><%= form.number_field :preparation_time, class: 'input', min: 0, placeholder: 10 %></p>
+          <p class="control is-expanded"><%= form.number_field :preparation_time, class: 'input is-fullwidth', min: 0, placeholder: 10 %></p>
           <p class="control"><a class="button is-static"><%= t('units.minutes') %></a></p>
         </div>
       </div>
       <div class="column is-half">
         <%= form.label :cooking_time, class: 'label' %>
         <div class="field has-addons">
-          <p class="control"><%= form.number_field :cooking_time, class: 'input', min: 0, placeholder: 20 %></p>
+          <p class="control is-expanded"><%= form.number_field :cooking_time, class: 'input is-fullwidth', min: 0, placeholder: 20 %></p>
           <p class="control"><a class="button is-static"><%= t('units.minutes') %></a></p>
         </div>
       </div>
       <div class="column is-half">
         <%= form.label :servings, class: 'label' %>
         <div class="field has-addons">
-          <p class="control"><%= form.number_field :servings, class: 'input', min: 0, placeholder: 8 %></p>
+          <p class="control is-expanded"><%= form.number_field :servings, class: 'input is-fullwidth', min: 0, placeholder: 8 %></p>
           <p class="control"><a class="button is-static"><%= t('units.portions') %></a></p>
         </div>
       </div>
