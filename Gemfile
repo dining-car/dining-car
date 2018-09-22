@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
@@ -22,6 +24,7 @@ gem 'bulma-rails'
 group :development, :test do
   gem 'pry-byebug'
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'rubocop', '~> 0.59.0', require: false
 end
 
 group :development do
