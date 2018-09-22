@@ -1,24 +1,92 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Title:</strong>
-  <%= @recipe.title %>
-</p>
-
-<p>
-  <strong>Info:</strong>
-  <%= @recipe.info %>
-</p>
-
-<p>
-  <strong>Public:</strong>
-  <%= @recipe.public %>
-</p>
-
-<p>
-  <strong>User:</strong>
-  <%= @recipe.user %>
-</p>
-
-<%= link_to 'Edit', edit_recipe_path(@recipe) %> |
-<%= link_to 'Back', recipes_path %>
+<div class="container">
+  <div class="column is-two-thirds is-offset-2">
+    <section class="hero is-info is-bold is-small promo-block">
+      <div class="hero-body recipe-photo" style="background-image: url(https://picsum.photos/780/440?image=1)">
+        <div class="container">
+          <span class="tag is-black is-medium is-rounded">
+            <%= @recipe.title %>
+          </span>
+        </div>
+      </div>
+    </section>
+    <div class="card">
+      <div class="card-content">
+        <div class="content">
+          <div class="columns is-multiline">
+            <div class="column is-8">
+              <% ['700 g de pommes de terre primeur de petit calibre ()grenaille', '3 poivrons (rouges, oranges ou jaunes ou un mélange)', '2 oignons rouges', '150 g de féta', 'Huile d’olive', 'Fleur de sel et poivre du moulin'].each_with_index do |ingredient, i| %>
+              <div class="field">
+                <%= label_tag "ingredient_#{i}" do %>
+                <%= check_box_tag "ingredient_#{i}" %>
+                <%= ingredient %>
+                <% end %>
+              </div>
+              <% end %>
+            </div>
+            <div class="column is-4">
+              <table class="table is-hoverable">
+                <tbody>
+                  <% if @recipe.preparation_time.present? %>
+                  <tr>
+                    <td><%= Recipe.human_attribute_name(:preparation_time)%></td>
+                    <td><%= @recipe.preparation_time %> <%= t('units.minutes') %></td>
+                  </tr>
+                  <% end %>
+                  <% if @recipe.cooking_time.present? %>
+                  <tr>
+                    <td><%= Recipe.human_attribute_name(:cooking_time)%></td>
+                    <td><%= @recipe.cooking_time %> <%= t('units.minutes') %></td>
+                  </tr>
+                  <% end %>
+                  <% if @recipe.servings.present? %>
+                  <tr>
+                    <td><%= Recipe.human_attribute_name(:servings)%></td>
+                    <td><%= @recipe.servings %> <%= t('units.portions') %></td>
+                  </tr>
+                  <% end %>
+                  <% if @recipe.course.present? %>
+                  <tr>
+                    <td><%= Course.model_name.human %></td>
+                    <td><%= @recipe.course.title %></td>
+                  </tr>
+                  <% end %>
+                  <% if @recipe.cuisine.present? %>
+                  <tr>
+                    <td><%= Cuisine.model_name.human %></td>
+                    <td><%= @recipe.cuisine.title %></td>
+                  </tr>
+                  <% end %>
+                </tbody>
+              </table>
+            </div>
+            <div class="column is-full">
+              <hr class="navbar-divider">
+            </div>
+            <div class="column is-full">
+              <ol>
+              <% ['Préchauffer votre four à 200°C.', 'Laver les pommes de terre et les poivrons, peler les oignons.', 'Couper les pommes de terre en quatre, dans le sens de la longueur.'].each_with_index do |direction, i| %>
+              <li><%= direction %></li>
+              <% end %>
+              </ol>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-content">
+        <div class="columns">
+          <div class="column is-8">
+            <p class="subtitle is-5 is-marginless"><%= t('.created_by') %> <%= @recipe.user.email %></p>
+            <p class="subtitle is-7"><%= t('.last_modification') %> <%= l @recipe.updated_at %></p>
+          </div>
+          <div class="column is-2">
+            <%= link_to t('.edit_recipe'), edit_recipe_path(@recipe), class: 'button is-info' %>
+          </div>
+          <div class="column is-2">
+            <%= link_to 'Delete', [@recipe], method: :delete, class: 'button is-danger',
+               data: { confirm: "Are you sure?" } %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
