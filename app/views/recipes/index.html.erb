@@ -13,17 +13,7 @@
               Courses
               </p>
               <ul class="menu-list">
-                <% Course.all.each do |c| %>
-                <% if @course == c %>
-                <li><%= link_to recipes_path(@safe_params.except(:course_id)) do %>
-                  X <%= c.title %> <span class="is-rounded tag is-primary"><%= c.recipes.count %></span>
-                  <% end %></li>
-                <% else %>
-                <li><%= link_to recipes_path(@safe_params.merge(course_id: c.id)) do %>
-                  <%= c.title %> <span class="is-rounded tag is-primary"><%= c.recipes.count %></span>
-                  <% end %></li>
-                <% end %>
-                <% end %>
+                <%= courses_menu %>
               </ul>
               <p class="menu-label">
               Cuisines
@@ -31,7 +21,7 @@
               <ul class="menu-list">
                 <% Cuisine.all.each do |c| %>
                 <% if @cuisine == c %>
-                <li><%= link_to recipes_path(@safe_params.except(:cuisine_id)) do %>
+                <li><%= link_to recipes_path(@safe_params.except(:cuisine_id)), class: 'is-active' do %>
                   X <%= c.title %> <span class="is-rounded tag is-primary"><%= c.recipes.count %></span>
                   <% end %></li>
                 <% else %>
@@ -45,8 +35,7 @@
               Ordering
               </p>
               <ul class="menu-list">
-                <li><%= link_to Recipe.human_attribute_name(:title), recipes_path(@safe_params.merge({sort_by_title: true})) %></li>
-                <li><%= link_to Recipe.human_attribute_name(:created_at), recipes_path(@safe_params) %></li>
+                <%= ordering_menu %>
               </ul>
             </aside>
           </div>

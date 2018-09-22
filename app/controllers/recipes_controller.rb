@@ -11,10 +11,10 @@ class RecipesController < ApplicationController
   # GET /recipes.json
   def index
     @recipes = Recipe.all
-    @recipes = if params[:sort_by_title].blank?
-                 @recipes.by_created_at
-               else
+    @recipes = if params[:sort_by] == 'title'
                  @recipes.by_title
+               else
+                 @recipes.by_created_at
                end
     @recipes = @recipes.with_public if current_user.blank?
     @recipes = @recipes.search_for(params[:search]) if params[:search]
@@ -91,7 +91,7 @@ class RecipesController < ApplicationController
     end
 
     def set_safe_params
-      @safe_params = params.permit(:course_id, :search, :cuisine_id)
+      @safe_params = params.permit(:course_id, :search, :cuisine_id, :sort_by)
     end
 
     def recipe_params
