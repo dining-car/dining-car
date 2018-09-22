@@ -7,6 +7,8 @@ class Recipe < ApplicationRecord
   belongs_to :course, optional: true
   belongs_to :cuisine, optional: true
 
+  scope :by_title, -> { order(title: :asc) }
+  scope :by_created_at, -> { order(created_at: :desc) }
   scope :with_public, -> { where(public: true) }
   scope :with_course, -> (course_id) { where(course_id: course_id) }
   scope :with_cuisine, -> (cuisine_id) { where(cuisine_id: cuisine_id) }

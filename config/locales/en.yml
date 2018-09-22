@@ -41,3 +41,12 @@ en:
       default: "%d/%m/%Y"
       short: "%b %d"
       long: "%B %d, %Y"
+  activerecord:
+    models:
+      recipe:
+        one: 'Recipe'
+        other: 'Recipes'
+    attributes:
+      recipe:
+        title: 'Name'
+        info: 'Information'
