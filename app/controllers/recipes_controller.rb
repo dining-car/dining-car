@@ -95,7 +95,7 @@ class RecipesController < ApplicationController
     end
 
     def set_recipe
-      @recipe = Recipe.find(params[:id])
+      @recipe = Recipe.eager_load(ingredient_groups: { ingredients: :unit } ).find(params[:id])
     end
 
     def set_safe_params
