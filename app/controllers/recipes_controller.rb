@@ -3,6 +3,7 @@
 class RecipesController < ApplicationController
   before_action :set_recipe, only: [:show, :edit, :update, :destroy]
   before_action :set_course, only: [:index]
+  before_action :set_cuisine, only: [:index]
   before_action :set_safe_params, only: [:index]
   before_action :authenticate_user!, except: [:show, :index]
 
@@ -13,6 +14,7 @@ class RecipesController < ApplicationController
     @recipes = @recipes.with_public if current_user.blank?
     @recipes = @recipes.search_for(params[:search]) if params[:search]
     @recipes = @recipes.with_course(@course) if @course
+    @recipes = @recipes.with_cuisine(@cuisine) if @cuisine
     @recipes = @recipes.page params[:page]
   end
 
@@ -75,15 +77,19 @@ class RecipesController < ApplicationController
       @course = Course.find_by_id(params[:course_id])
     end
 
+    def set_cuisine
+      @cuisine = Cuisine.find_by_id(params[:cuisine_id])
+    end
+
     def set_recipe
       @recipe = Recipe.find(params[:id])
     end
 
     def set_safe_params
-      @safe_params = params.permit(:course_id, :search, :recipe => [:title, :info, :public, :user_id, :search])
+      @safe_params = params.permit(:course_id, :search, :cuisine_id)
     end
 
     def recipe_params
-      params.require(:recipe).permit(:title, :info, :public, :user_id, :search, :course_id)
+      params.require(:recipe).permit(:title, :info, :public, :user_id, :search, :course_id, :cuisine_id)
     end
 end

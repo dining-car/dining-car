@@ -29,8 +29,17 @@
               Cuisines
               </p>
               <ul class="menu-list">
-                <li><a>Brazilian <span class="is-rounded tag is-primary">12</span></a></li>
-                <li><a>Moroccan <span class="is-rounded tag is-primary">12</span></a></li>
+                <% Cuisine.all.each do |c| %>
+                <% if @cuisine == c %>
+                <li><%= link_to recipes_path(@safe_params.except(:cuisine_id)) do %>
+                  X <%= c.title %> <span class="is-rounded tag is-primary"><%= c.recipes.count %></span>
+                  <% end %></li>
+                <% else %>
+                <li><%= link_to recipes_path(@safe_params.merge(cuisine_id: c.id)) do %>
+                  <%= c.title %> <span class="is-rounded tag is-primary"><%= c.recipes.count %></span>
+                  <% end %></li>
+                <% end %>
+                <% end %>
               </ul>
               <p class="menu-label">
               Ordering

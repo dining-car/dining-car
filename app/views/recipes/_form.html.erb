@@ -1,17 +1,25 @@
 <%= form_with(model: recipe, local: true) do |form| %>
 <div class="columns">
-<div class="column is-one-third">
-  <div class="columns">
-    <div class="column is-half">
-      <div class="field">
-        <%= form.label :course_id, class: 'label' %>
-        <div class="select">
-          <%= form.select :course_id, course_options %>
+  <div class="column is-one-third">
+    <div class="columns">
+      <div class="column is-half">
+        <div class="field">
+          <%= form.label :course_id, class: 'label' %>
+          <div class="select is-fullwidth">
+            <%= form.select :course_id, course_options %>
+          </div>
+        </div>
+      </div>
+      <div class="column is-half">
+        <div class="field">
+          <%= form.label :cuisine_id, class: 'label' %>
+          <div class="select is-fullwidth">
+            <%= form.select :cuisine_id, cuisine_options %>
+          </div>
         </div>
       </div>
     </div>
   </div>
-</div>
 <div class="column is-two-thirds">
   <% if recipe.errors.any? %>
     <div id="error_explanation">
