@@ -12,7 +12,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_09_13_162200) do
+ActiveRecord::Schema.define(version: 2018_09_13_175918) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -38,6 +38,10 @@ ActiveRecord::Schema.define(version: 2018_09_13_162200) do
     t.datetime "updated_at", null: false
     t.bigint "course_id"
     t.bigint "cuisine_id"
+    t.integer "preparation_time"
+    t.integer "cooking_time"
+    t.integer "servings"
+    t.string "source", array: true
     t.index ["course_id"], name: "index_recipes_on_course_id"
     t.index ["cuisine_id"], name: "index_recipes_on_cuisine_id"
     t.index ["user_id"], name: "index_recipes_on_user_id"

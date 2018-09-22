@@ -1,7 +1,22 @@
+<% if recipe.errors.any? %>
+<div class="notification is-danger">
+  <h2><%= pluralize(recipe.errors.count, "error") %> prohibited this recipe from being saved:</h2>
+
+  <ul>
+    <% recipe.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+    <% end %>
+  </ul>
+</div>
+<% end %>
+
 <%= form_with(model: recipe, local: true) do |form| %>
 <div class="columns">
   <div class="column is-one-third">
-    <div class="columns">
+    <div class="columns is-multiline">
+      <div class="column is-full">
+        <%= image_tag "https://picsum.photos/780/440?image=1", "data-foca":"#{recipe.id}", alt: 'image' %>
+      </div>
       <div class="column is-half">
         <div class="field">
           <%= form.label :course_id, class: 'label' %>
@@ -18,21 +33,36 @@
           </div>
         </div>
       </div>
+      <div class="column is-half">
+        <%= form.label :preparation_time, class: 'label' %>
+        <div class="field has-addons">
+          <p class="control"><%= form.number_field :preparation_time, class: 'input', min: 0, placeholder: 10 %></p>
+          <p class="control"><a class="button is-static"><%= t('units.minutes') %></a></p>
+        </div>
+      </div>
+      <div class="column is-half">
+        <%= form.label :cooking_time, class: 'label' %>
+        <div class="field has-addons">
+          <p class="control"><%= form.number_field :cooking_time, class: 'input', min: 0, placeholder: 20 %></p>
+          <p class="control"><a class="button is-static"><%= t('units.minutes') %></a></p>
+        </div>
+      </div>
+      <div class="column is-half">
+        <%= form.label :servings, class: 'label' %>
+        <div class="field has-addons">
+          <p class="control"><%= form.number_field :servings, class: 'input', min: 0, placeholder: 8 %></p>
+          <p class="control"><a class="button is-static"><%= t('units.portions') %></a></p>
+        </div>
+      </div>
+      <div class="column is-full">
+        <div class="field">
+          <%= form.label :source, class: 'label' %>
+          <%= form.text_field :source, class: 'input', placeholder: 'Add a source' %>
+        </div>
+      </div>
     </div>
   </div>
 <div class="column is-two-thirds">
-  <% if recipe.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(recipe.errors.count, "error") %> prohibited this recipe from being saved:</h2>
-
-      <ul>
-      <% recipe.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
   <div class="field">
     <%= form.label :title, class: 'label' %>
     <%= form.text_field :title, class: 'input' %>
