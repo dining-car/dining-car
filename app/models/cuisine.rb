@@ -4,4 +4,14 @@ class Cuisine < ApplicationRecord
   has_many :recipes
 
   validates :title, presence: true, uniqueness: { case_sensitive: false }
+
+  scope :with_recipes_count, -> {
+    select <<~SQL
+      cuisines.*,
+      (
+        SELECT COUNT(recipes.id) FROM recipes
+        WHERE cuisine_id = cuisines.id
+      ) AS recipes_count
+    SQL
+  }
 end

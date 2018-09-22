@@ -22,6 +22,8 @@ class RecipesController < ApplicationController
     @recipes = @recipes.with_course(@course) if @course
     @recipes = @recipes.with_cuisine(@cuisine) if @cuisine
     @recipes = @recipes.page params[:page]
+    @courses = Course.all.with_recipes_count
+    @cuisines = Cuisine.all.with_recipes_count
   end
 
   # GET /recipes/1

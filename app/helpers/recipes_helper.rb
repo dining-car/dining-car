@@ -8,7 +8,8 @@ module RecipesHelper
     [['', nil]] + Cuisine.order(:title).map { |c| [ c.title, c.id ] }
   end
   def courses_menu
-    safe_join(Course.all.collect do |c|
+    safe_join(@courses.collect do |c|
+      next if c.recipes_count == 0
       course_link = if @course == c
                recipes_path(@safe_params.except(:course_id))
              else
@@ -20,7 +21,7 @@ module RecipesHelper
           concat 'X ' if @course == c
           concat c.title
           concat ' '
-          concat content_tag(:span, c.recipes.count, class: 'is-rounded tag is-primary')
+          concat content_tag(:span, c.recipes_count, class: 'is-rounded tag is-primary')
         end
       end
 
@@ -30,7 +31,8 @@ module RecipesHelper
   end
 
   def cuisines_menu
-    safe_join(Cuisine.all.collect do |c|
+    safe_join(@cuisines.collect do |c|
+      next if c.recipes_count == 0
       cuisine_link = if @cuisine == c
                recipes_path(@safe_params.except(:cuisine_id))
              else
@@ -42,7 +44,7 @@ module RecipesHelper
           concat 'X ' if @cuisine == c
           concat c.title
           concat ' '
-          concat content_tag(:span, c.recipes.count, class: 'is-rounded tag is-primary')
+          concat content_tag(:span, c.recipes_count, class: 'is-rounded tag is-primary')
         end
       end
 

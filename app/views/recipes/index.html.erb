@@ -19,17 +19,7 @@
               Cuisines
               </p>
               <ul class="menu-list">
-                <% Cuisine.all.each do |c| %>
-                <% if @cuisine == c %>
-                <li><%= link_to recipes_path(@safe_params.except(:cuisine_id)), class: 'is-active' do %>
-                  X <%= c.title %> <span class="is-rounded tag is-primary"><%= c.recipes.count %></span>
-                  <% end %></li>
-                <% else %>
-                <li><%= link_to recipes_path(@safe_params.merge(cuisine_id: c.id)) do %>
-                  <%= c.title %> <span class="is-rounded tag is-primary"><%= c.recipes.count %></span>
-                  <% end %></li>
-                <% end %>
-                <% end %>
+                <%= cuisines_menu %>
               </ul>
               <p class="menu-label">
               Ordering
