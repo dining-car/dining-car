@@ -8,6 +8,8 @@ class RecipesController < ApplicationController
   # GET /recipes.json
   def index
     @recipes = Recipe.all
+    @recipes = @recipes.with_public if current_user.blank?
+    @recipes = @recipes.page params[:page]
   end
 
   # GET /recipes/1

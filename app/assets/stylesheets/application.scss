@@ -46,6 +46,9 @@
   }
 }
 
-.ellipsed-text {
+.ellipsed-title {
   @include multiLineEllipsis($lineHeight: 1.5em, $lineCount: 2, $bgColor: white);
+}
+.ellipsed-info {
+  @include multiLineEllipsis($lineHeight: 1.5em, $lineCount: 3, $bgColor: white);
 }

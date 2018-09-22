@@ -21,10 +21,13 @@ gem 'bootsnap', '>= 1.1.0', require: false
 
 gem 'bulma-rails'
 
+gem 'kaminari'
+
 group :development, :test do
   gem 'pry-byebug'
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'rubocop', '~> 0.59.0', require: false
+  gem 'faker'
 end
 
 group :development do

@@ -88,6 +88,8 @@ GEM
       devise (>= 4.4)
     erubi (1.7.1)
     execjs (2.7.0)
+    faker (1.9.1)
+      i18n (>= 0.7)
     ffi (1.9.25)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
@@ -98,6 +100,18 @@ GEM
     jbuilder (2.7.0)
       activesupport (>= 4.2.0)
       multi_json (>= 1.2)
+    kaminari (1.1.1)
+      activesupport (>= 4.1.0)
+      kaminari-actionview (= 1.1.1)
+      kaminari-activerecord (= 1.1.1)
+      kaminari-core (= 1.1.1)
+    kaminari-actionview (1.1.1)
+      actionview
+      kaminari-core (= 1.1.1)
+    kaminari-activerecord (1.1.1)
+      activerecord
+      kaminari-core (= 1.1.1)
+    kaminari-core (1.1.1)
     launchy (2.4.3)
       addressable (~> 2.3)
     letter_opener (1.6.0)
@@ -245,7 +259,9 @@ DEPENDENCIES
   coffee-rails (~> 4.2)
   devise (~> 4)
   devise-i18n (~> 1.6)
+  faker
   jbuilder (~> 2.5)
+  kaminari
   letter_opener (~> 1.6)
   listen (~> 3.1)
   pg (~> 1)
