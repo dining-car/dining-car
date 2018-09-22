@@ -6,27 +6,32 @@ class CuisinesController < ApplicationController
   # GET /cuisines
   # GET /cuisines.json
   def index
+    authorize :cuisine, :index?
     @cuisines = Cuisine.all
   end
 
   # GET /cuisines/1
   # GET /cuisines/1.json
   def show
+    authorize @cuisine, :show?
   end
 
   # GET /cuisines/new
   def new
     @cuisine = Cuisine.new
+    authorize @cuisine, :new?
   end
 
   # GET /cuisines/1/edit
   def edit
+    authorize @cuisine, :edit?
   end
 
   # POST /cuisines
   # POST /cuisines.json
   def create
     @cuisine = Cuisine.new(cuisine_params)
+    authorize @cuisine, :create?
 
     respond_to do |format|
       if @cuisine.save
@@ -42,6 +47,7 @@ class CuisinesController < ApplicationController
   # PATCH/PUT /cuisines/1
   # PATCH/PUT /cuisines/1.json
   def update
+    authorize @cuisine, :update?
     respond_to do |format|
       if @cuisine.update(cuisine_params)
         format.html { redirect_to @cuisine, notice: 'Cuisine was successfully updated.' }
@@ -56,6 +62,7 @@ class CuisinesController < ApplicationController
   # DELETE /cuisines/1
   # DELETE /cuisines/1.json
   def destroy
+    authorize @cuisine, :destroy?
     @cuisine.destroy
     respond_to do |format|
       format.html { redirect_to cuisines_url, notice: 'Cuisine was successfully destroyed.' }

@@ -10,6 +10,7 @@ class RecipesController < ApplicationController
   # GET /recipes
   # GET /recipes.json
   def index
+    authorize :recipe, :index?
     @recipes = Recipe.all
     @recipes = if params[:sort_by] == 'title'
                  @recipes.by_title
@@ -26,15 +27,18 @@ class RecipesController < ApplicationController
   # GET /recipes/1
   # GET /recipes/1.json
   def show
+    authorize @recipe, :show?
   end
 
   # GET /recipes/new
   def new
     @recipe = Recipe.new(user: current_user)
+    authorize @recipe, :new?
   end
 
   # GET /recipes/1/edit
   def edit
+    authorize @recipe, :edit?
   end
 
   # POST /recipes
@@ -56,6 +60,7 @@ class RecipesController < ApplicationController
   # PATCH/PUT /recipes/1
   # PATCH/PUT /recipes/1.json
   def update
+    authorize @recipe, :update?
     respond_to do |format|
       if @recipe.update(recipe_params)
         format.html { redirect_to @recipe, notice: 'Recipe was successfully updated.' }
@@ -70,6 +75,7 @@ class RecipesController < ApplicationController
   # DELETE /recipes/1
   # DELETE /recipes/1.json
   def destroy
+    authorize @recipe, :destroy?
     @recipe.destroy
     respond_to do |format|
       format.html { redirect_to recipes_url, notice: 'Recipe was successfully destroyed.' }

@@ -14,14 +14,17 @@ gem 'uglifier'
 gem 'coffee-rails', '~> 4.2'
 gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
-gem 'devise', '~> 4'
+
+gem 'devise', '~> 4' # authentication
 gem 'devise-i18n', '~> 1.6'
 
-gem 'bootsnap', '>= 1.1.0', require: false
+gem 'bootsnap', '>= 1.1.0', require: false # speed-up rails startup
 
-gem 'bulma-rails'
+gem 'bulma-rails' # css framework
 
-gem 'kaminari'
+gem 'kaminari' # used for pagination
+
+gem 'pundit' # authorization
 
 group :development, :test do
   gem 'pry-byebug'
