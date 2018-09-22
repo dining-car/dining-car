@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class RecipePolicy < ApplicationPolicy
   def update?
     owned?

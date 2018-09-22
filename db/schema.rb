@@ -97,5 +97,7 @@ ActiveRecord::Schema.define(version: 2018_09_14_115629) do
   add_foreign_key "ingredient_groups", "recipes"
   add_foreign_key "ingredients", "ingredient_groups"
   add_foreign_key "ingredients", "units"
+  add_foreign_key "recipes", "courses"
+  add_foreign_key "recipes", "cuisines"
   add_foreign_key "recipes", "users"
 end
