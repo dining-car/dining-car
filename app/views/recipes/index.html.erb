@@ -12,11 +12,12 @@
           <div class="card-content">
             <div class="media">
               <div class="media-content">
-                <p class="title is-4 no-padding"><%= link_to recipe.title, recipe %></p>
+                <p class="subtitle is-5 no-padding ellipsed-text"><%= link_to recipe.title, recipe %></p>
               </div>
             </div>
             <div class="content">
-              <%= recipe.info %>
+              <p><%= recipe.info %></p>
+              <p class="is-pulled-right"><small><%= l(recipe.created_at.to_date) %></small></p>
             </div>
           </div>
         </div>

@@ -30,4 +30,14 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  recipes:
+    new:
+      create_recipe: 'Create recipe'
+  time:
+    formats:
+      default: '%d/%m/%Y %H:%M'
+  date:
+    formats:
+      default: "%d/%m/%Y"
+      short: "%b %d"
+      long: "%B %d, %Y"

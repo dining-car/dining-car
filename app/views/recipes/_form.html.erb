@@ -1,4 +1,8 @@
 <%= form_with(model: recipe, local: true) do |form| %>
+<div class="columns">
+<div class="column is-one-third">
+</div>
+<div class="column is-two-thirds">
   <% if recipe.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(recipe.errors.count, "error") %> prohibited this recipe from being saved:</h2>
@@ -12,21 +16,25 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title %>
+    <%= form.label :title, class: 'label' %>
+    <%= form.text_field :title, class: 'input' %>
   </div>
 
   <div class="field">
-    <%= form.label :info %>
-    <%= form.text_area :info %>
+    <%= form.label :info, class: 'label' %>
+    <%= form.text_area :info, class: 'textarea' %>
   </div>
 
   <div class="field">
-    <%= form.label :public %>
+    <%= form.label :public, class: 'label' do %>
     <%= form.check_box :public %>
+    <%= Recipe.human_attribute_name(:public) %>
+    <% end %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit class: 'button is-info is-pulled-right' %>
   </div>
+</div>
+</div>
 <% end %>
