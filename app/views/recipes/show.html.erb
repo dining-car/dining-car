@@ -14,13 +14,18 @@
         <div class="content">
           <div class="columns is-multiline">
             <div class="column is-8">
-              <% ['700 g de pommes de terre primeur de petit calibre ()grenaille', '3 poivrons (rouges, oranges ou jaunes ou un mélange)', '2 oignons rouges', '150 g de féta', 'Huile d’olive', 'Fleur de sel et poivre du moulin'].each_with_index do |ingredient, i| %>
+              <% @recipe.ingredient_groups.each do |ingredient_group| %>
+              <% unless ingredient_group.title.blank? %> <p class="subtitle"><%= ingredient_group.title %></p> <% end %>
+              <% ingredient_group.ingredients.each do |ingredient| %>
+              <% present(ingredient) do |ingredient_presenter| %>
               <div class="field">
-                <%= label_tag "ingredient_#{i}" do %>
-                <%= check_box_tag "ingredient_#{i}" %>
-                <%= ingredient %>
+                <%= label_tag "ingredient_#{ingredient.id}" do %>
+                <%= check_box_tag "ingredient_#{ingredient.id}" %>
+                <%= ingredient_presenter.quantity %> <%= ingredient_presenter.unit %> <%= ingredient.title %>
                 <% end %>
               </div>
+              <% end %>
+              <% end %>
               <% end %>
             </div>
             <div class="column is-4">
