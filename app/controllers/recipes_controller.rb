@@ -9,6 +9,7 @@ class RecipesController < ApplicationController
   def index
     @recipes = Recipe.all
     @recipes = @recipes.with_public if current_user.blank?
+    @recipes = @recipes.search_for(params[:search]) if params[:search]
     @recipes = @recipes.page params[:page]
   end
 
@@ -74,6 +75,6 @@ class RecipesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def recipe_params
-      params.require(:recipe).permit(:title, :info, :public, :user_id)
+      params.require(:recipe).permit(:title, :info, :public, :user_id, :search)
     end
 end

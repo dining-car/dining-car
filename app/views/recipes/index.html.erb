@@ -1,12 +1,26 @@
 <div class="container">
   <div class="section">
-    <div class="row columns is-multiline">
+    <div class="columns">
+      <div class="container is-expanded">
+        <%= form_tag(recipes_path, method: 'get', local: true) do |form| %>
+        <div class="field has-addons">
+          <p class="control is-expanded">
+          <%= text_field_tag :search, params[:search], placeholder: 'Enter a title', class: 'input is-fullwidth' %>
+          </p>
+          <p class="control">
+          <%= submit_tag 'Search', class: 'button is-primary' %>
+          </p>
+        </div>
+        <% end %>
+      </div>
+    </div>
+    <div class="columns is-multiline">
     <% @recipes.each do |recipe| %>
       <div class="column is-one-quarter">
         <div class="card medium round">
           <div class="card-image ">
             <figure class="image">
-              <img src="https://source.unsplash.com/Jy6luiLBsrk" alt="Image">
+              <%= image_tag "https://picsum.photos/306/172?image=#{recipe.id}", alt: 'image' %>
             </figure>
           </div>
           <div class="card-content">

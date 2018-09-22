@@ -6,4 +6,5 @@ class Recipe < ApplicationRecord
   belongs_to :user
 
   scope :with_public, -> { where(public: true) }
+  scope :search_for, -> (search) { where('title ilike ?', "%#{search}%") }
 end
