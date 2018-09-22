@@ -1,0 +1,29 @@
+<div class="container has-text-centered">
+  <div class="column is-4 is-offset-4">
+    <h3 class="title has-text-grey"><%= t('.sign_in') %></h3>
+    <p class="subtitle has-text-grey">Please login to proceed.</p>
+    <div class="box">
+      <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <div class="field">
+        <div class="control">
+          <%= f.email_field :email, autofocus: true, autocomplete: 'email', placeholder: 'email@example.com', class: 'input is-large' %>
+        </div>
+      </div>
+
+      <div class="field">
+        <div class="control">
+          <%= f.password_field :password, autocomplete: "current-password", placeholder: User.human_attribute_name(:password), class: 'input is-large' %>
+        </div>
+      </div>
+      <div class="field">
+        <%= f.label :remember_me, class: 'checkbox' do %>
+        <%= f.check_box :remember_me %>
+        <%= User.human_attribute_name(:remember_me) %>
+        <% end %>
+      </div>
+      <%= f.submit t('.sign_in'), class: 'button is-block is-info is-large is-fullwidth' %>
+      <% end %>
+    </div>
+    <%= render "devise/shared/links" %>
+  </div>
+</div>

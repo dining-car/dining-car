@@ -288,3 +288,7 @@ Devise.setup do |config|
   #   include Turbolinks::Controller
   # end
 end
+Rails.application.config.to_prepare do
+  Devise::RegistrationsController.layout proc { |controller| user_signed_in? ? "application" : "devise" }
+  # And/or Sessions, Confirmations, Unlocks, Passwords
+end

@@ -1,0 +1,33 @@
+<div class="container has-text-centered">
+  <div class="column is-4 is-offset-4">
+    <h3 class="title has-text-grey"><%= t('.change_your_password') %></h3>
+    <div class="box">
+      <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
+      <%= devise_error_messages! %>
+      <%= f.hidden_field :reset_password_token %>
+
+      <div class="field">
+        <%= f.label :password, t('.new_password'), class: 'label' %>
+        <div class="control">
+          <%= f.password_field :password, autocomplete: "new-password", placeholder: User.human_attribute_name(:password), class: 'input is-large' %>
+        </div>
+        <% if @minimum_password_length %>
+        <p class="help"><%= t('devise.shared.minimum_password_length', count: @minimum_password_length) %></p>
+        <% end %>
+      </div>
+
+      <div class="field">
+        <%= f.label :password_confirmation, t('.confirm_new_password'), class: 'label' %>
+        <div class="control">
+          <%= f.password_field :password_confirmation, autocomplete: "off", placeholder: User.human_attribute_name(:password_confirmation), class: 'input is-large' %>
+        </div>
+      </div>
+
+      <div class="actions">
+        <%= f.submit t('.change_my_password'), class: 'button is-block is-info is-large is-fullwidth' %>
+      </div>
+      <% end %>
+
+      <%= render "devise/shared/links" %>
+  </div>
+</div>

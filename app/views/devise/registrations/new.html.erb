@@ -1,0 +1,29 @@
+<div class="container has-text-centered">
+  <div class="column is-4 is-offset-4">
+    <h3 class="title has-text-grey"><%= t('.sign_up') %></h3>
+    <div class="box">
+      <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+      <%= devise_error_messages! %>
+      <div class="field">
+        <div class="control">
+          <%= f.email_field :email, autofocus: true, autocomplete: 'email', placeholder: 'email@example.com', class: 'input is-large' %>
+        </div>
+      </div>
+
+      <div class="field">
+        <div class="control">
+          <%= f.password_field :password, autocomplete: "new-password", placeholder: User.human_attribute_name(:password), class: 'input is-large' %>
+        </div>
+      </div>
+
+      <div class="field">
+        <div class="control">
+          <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: User.human_attribute_name(:password_confirmation), class: 'input is-large' %>
+        </div>
+      </div>
+      <%= f.submit t('.sign_up'), class: 'button is-block is-info is-large is-fullwidth' %>
+      <% end %>
+    </div>
+    <%= render "devise/shared/links" %>
+  </div>
+</div>

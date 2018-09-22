@@ -23,17 +23,12 @@
       </div>
       <div id="navbarMenu" class="navbar-menu">
         <div class="navbar-end">
-          <a class="navbar-item is-active">
-            Home
-          </a>
+          <%= link_to t(:browse_recipes), :recipes, class: 'navbar-item' %>
           <% if current_user %>
-          <div class="navbar-item">
-            <%= link_to 'Logout', destroy_user_session_url, method: :delete, class: 'navbar-item' %>
-          </div>
+          <%= link_to t(:create_recipe), new_recipe_path, class: 'navbar-item' %>
+          <%= link_to 'Logout', destroy_user_session_url, method: :delete, class: 'navbar-item' %>
           <% else %>
-          <div class="navbar-item">
-            <%= link_to 'Login', new_user_session_path, class: 'navbar-item' %>
-          </div>
+          <%= link_to 'Login', new_user_session_path, class: 'navbar-item' %>
           <% end %>
         </div>
       </div>
