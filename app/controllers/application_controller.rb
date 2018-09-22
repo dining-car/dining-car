@@ -6,6 +6,14 @@ class ApplicationController < ActionController::Base
 
   rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
 
+  helper_method :current_account
+
+  protected
+
+  def current_account
+    @current_account ||= current_user.try(:account)
+  end
+
   private
 
   def user_not_authorized

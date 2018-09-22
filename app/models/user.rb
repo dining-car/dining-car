@@ -6,4 +6,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable,
          :trackable, :confirmable
+  belongs_to :account, inverse_of: :user
+
+  accepts_nested_attributes_for :account
 end

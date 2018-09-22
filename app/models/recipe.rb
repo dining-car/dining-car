@@ -3,7 +3,7 @@
 class Recipe < ApplicationRecord
   paginates_per 16
 
-  belongs_to :user
+  belongs_to :account
   belongs_to :course, optional: true
   belongs_to :cuisine, optional: true
   has_many :ingredient_groups

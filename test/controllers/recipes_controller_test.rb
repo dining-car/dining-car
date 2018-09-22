@@ -3,7 +3,10 @@
 require 'test_helper'
 
 class RecipesControllerTest < ActionDispatch::IntegrationTest
+  include Devise::Test::IntegrationHelpers
+
   setup do
+    sign_in users(:one)
     @recipe = recipes(:one)
   end
 
@@ -19,7 +22,7 @@ class RecipesControllerTest < ActionDispatch::IntegrationTest
 
   test "should create recipe" do
     assert_difference('Recipe.count') do
-      post recipes_url, params: { recipe: { info: @recipe.info, public: @recipe.public, title: @recipe.title, user_id: @recipe.user_id } }
+      post recipes_url, params: { recipe: { info: @recipe.info, public: @recipe.public, title: @recipe.title, account_id: @recipe.account_id } }
     end
 
     assert_redirected_to recipe_url(Recipe.last)
@@ -36,7 +39,7 @@ class RecipesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update recipe" do
-    patch recipe_url(@recipe), params: { recipe: { info: @recipe.info, public: @recipe.public, title: @recipe.title, user_id: @recipe.user_id } }
+    patch recipe_url(@recipe), params: { recipe: { info: @recipe.info, public: @recipe.public, title: @recipe.title, account_id: @recipe.account_id } }
     assert_redirected_to recipe_url(@recipe)
   end
 

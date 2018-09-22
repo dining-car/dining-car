@@ -32,7 +32,7 @@ class RecipesController < ApplicationController
 
   # GET /recipes/new
   def new
-    @recipe = Recipe.new(user: current_user)
+    @recipe = Recipe.new(account: current_account)
     authorize @recipe, :new?
   end
 
@@ -44,7 +44,7 @@ class RecipesController < ApplicationController
   # POST /recipes
   # POST /recipes.json
   def create
-    @recipe = Recipe.new(recipe_params.merge(user: current_user))
+    @recipe = Recipe.new(recipe_params.merge(account: current_account))
 
     respond_to do |format|
       if @recipe.save
@@ -101,6 +101,6 @@ class RecipesController < ApplicationController
     end
 
     def recipe_params
-      params.require(:recipe).permit(:title, :info, :public, :user_id, :search, :course_id, :cuisine_id, :preparation_time, :cooking_time, :servings, :source)
+      params.require(:recipe).permit(:title, :info, :public, :search, :course_id, :cuisine_id, :preparation_time, :cooking_time, :servings, :source)
     end
 end

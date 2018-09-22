@@ -4,10 +4,10 @@ one:
   title: MyString
   info: MyText
   public: false
-  user: one
+  account: one
 
 two:
   title: MyString
   info: MyText
   public: false
-  user: two
+  account: two

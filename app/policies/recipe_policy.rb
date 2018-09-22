@@ -20,6 +20,6 @@ class RecipePolicy < ApplicationPolicy
 
   private
   def owned?
-    record.user.id == user&.id
+    record.account.id == user&.account&.id
   end
 end

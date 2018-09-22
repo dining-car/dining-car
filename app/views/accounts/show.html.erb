@@ -1,0 +1,59 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Username:</strong>
+  <%= @account.username %>
+</p>
+
+<p>
+  <strong>Domain:</strong>
+  <%= @account.domain %>
+</p>
+
+<p>
+  <strong>Display name:</strong>
+  <%= @account.display_name %>
+</p>
+
+<p>
+  <strong>Note:</strong>
+  <%= @account.note %>
+</p>
+
+<p>
+  <strong>Uri:</strong>
+  <%= @account.uri %>
+</p>
+
+<p>
+  <strong>Url:</strong>
+  <%= @account.url %>
+</p>
+
+<p>
+  <strong>Last webfingered at:</strong>
+  <%= @account.last_webfingered_at %>
+</p>
+
+<p>
+  <strong>Inbox url:</strong>
+  <%= @account.inbox_url %>
+</p>
+
+<p>
+  <strong>Outbox url:</strong>
+  <%= @account.outbox_url %>
+</p>
+
+<p>
+  <strong>Shared inbox url:</strong>
+  <%= @account.shared_inbox_url %>
+</p>
+
+<p>
+  <strong>Followers url:</strong>
+  <%= @account.followers_url %>
+</p>
+
+<%= link_to 'Edit', edit_account_path(@account) %> |
+<%= link_to 'Back', accounts_path %>

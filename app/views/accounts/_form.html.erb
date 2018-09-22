@@ -1,0 +1,72 @@
+<%= form_with(model: account, local: true) do |form| %>
+  <% if account.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(account.errors.count, "error") %> prohibited this account from being saved:</h2>
+
+      <ul>
+      <% account.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :username %>
+    <%= form.text_field :username %>
+  </div>
+
+  <div class="field">
+    <%= form.label :domain %>
+    <%= form.text_field :domain %>
+  </div>
+
+  <div class="field">
+    <%= form.label :display_name %>
+    <%= form.text_field :display_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :note %>
+    <%= form.text_field :note %>
+  </div>
+
+  <div class="field">
+    <%= form.label :uri %>
+    <%= form.text_field :uri %>
+  </div>
+
+  <div class="field">
+    <%= form.label :url %>
+    <%= form.text_field :url %>
+  </div>
+
+  <div class="field">
+    <%= form.label :last_webfingered_at %>
+    <%= form.datetime_select :last_webfingered_at %>
+  </div>
+
+  <div class="field">
+    <%= form.label :inbox_url %>
+    <%= form.text_field :inbox_url %>
+  </div>
+
+  <div class="field">
+    <%= form.label :outbox_url %>
+    <%= form.text_field :outbox_url %>
+  </div>
+
+  <div class="field">
+    <%= form.label :shared_inbox_url %>
+    <%= form.text_field :shared_inbox_url %>
+  </div>
+
+  <div class="field">
+    <%= form.label :followers_url %>
+    <%= form.text_field :followers_url %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

@@ -4,6 +4,14 @@
     <div class="box">
       <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
       <%= devise_error_messages! %>
+      <%= f.fields_for :account do |ff| %>
+      <div class="field">
+        <div class="control">
+          <%= ff.text_field :username, autofocus: true, autocomplete: 'username', placeholder: 'username', class: 'input is-large' %>
+        </div>
+      </div>
+      <% end %>
+
       <div class="field">
         <div class="control">
           <%= f.email_field :email, autofocus: true, autocomplete: 'email', placeholder: 'email@example.com', class: 'input is-large' %>

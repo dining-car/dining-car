@@ -12,10 +12,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_09_14_115629) do
+ActiveRecord::Schema.define(version: 2018_09_14_132453) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "accounts", force: :cascade do |t|
+    t.string "username"
+    t.string "domain"
+    t.string "display_name"
+    t.string "note"
+    t.string "uri"
+    t.string "url"
+    t.datetime "last_webfingered_at"
+    t.string "inbox_url"
+    t.string "outbox_url"
+    t.string "shared_inbox_url"
+    t.string "followers_url"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index "lower((username)::text), lower((domain)::text)", name: "index_accounts_on_username_and_domain_lower", unique: true
+  end
 
   create_table "courses", force: :cascade do |t|
     t.string "title"
@@ -52,7 +69,6 @@ ActiveRecord::Schema.define(version: 2018_09_14_115629) do
     t.string "title"
     t.text "info"
     t.boolean "public"
-    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "course_id"
@@ -61,9 +77,10 @@ ActiveRecord::Schema.define(version: 2018_09_14_115629) do
     t.integer "cooking_time"
     t.integer "servings"
     t.string "source", array: true
+    t.bigint "account_id", null: false
+    t.index ["account_id"], name: "index_recipes_on_account_id"
     t.index ["course_id"], name: "index_recipes_on_course_id"
     t.index ["cuisine_id"], name: "index_recipes_on_cuisine_id"
-    t.index ["user_id"], name: "index_recipes_on_user_id"
   end
 
   create_table "units", force: :cascade do |t|
@@ -89,6 +106,8 @@ ActiveRecord::Schema.define(version: 2018_09_14_115629) do
     t.string "unconfirmed_email"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "account_id", null: false
+    t.index ["account_id"], name: "index_users_on_account_id"
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
@@ -97,7 +116,8 @@ ActiveRecord::Schema.define(version: 2018_09_14_115629) do
   add_foreign_key "ingredient_groups", "recipes"
   add_foreign_key "ingredients", "ingredient_groups"
   add_foreign_key "ingredients", "units"
+  add_foreign_key "recipes", "accounts"
   add_foreign_key "recipes", "courses"
   add_foreign_key "recipes", "cuisines"
-  add_foreign_key "recipes", "users"
+  add_foreign_key "users", "accounts"
 end
