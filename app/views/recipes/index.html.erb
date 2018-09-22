@@ -1,0 +1,27 @@
+<div class="container">
+  <div class="section">
+    <div class="row columns is-multiline">
+    <% @recipes.each do |recipe| %>
+      <div class="column is-one-quarter">
+        <div class="card medium round">
+          <div class="card-image ">
+            <figure class="image">
+              <img src="https://source.unsplash.com/Jy6luiLBsrk" alt="Image">
+            </figure>
+          </div>
+          <div class="card-content">
+            <div class="media">
+              <div class="media-content">
+                <p class="title is-4 no-padding"><%= link_to recipe.title, recipe %></p>
+              </div>
+            </div>
+            <div class="content">
+              <%= recipe.info %>
+            </div>
+          </div>
+        </div>
+      </div>
+      <% end %>
+    </div>
+  </div>
+</div>

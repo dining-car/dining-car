@@ -17,7 +17,10 @@ gem 'devise-i18n', '~> 1.6'
 
 gem 'bootsnap', '>= 1.1.0', require: false
 
+gem 'bulma-rails'
+
 group :development, :test do
+  gem 'pry-byebug'
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
 end
 
