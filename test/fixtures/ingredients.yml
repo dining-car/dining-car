@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  ingredient_group: one
+  quantity: 
+  unit: one
+
+two:
+  title: MyString
+  ingredient_group: two
+  quantity: 
+  unit: two

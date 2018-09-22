@@ -12,7 +12,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_09_13_175918) do
+ActiveRecord::Schema.define(version: 2018_09_14_115629) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,6 +27,25 @@ ActiveRecord::Schema.define(version: 2018_09_13_175918) do
     t.string "title"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "ingredient_groups", force: :cascade do |t|
+    t.string "title"
+    t.bigint "recipe_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["recipe_id"], name: "index_ingredient_groups_on_recipe_id"
+  end
+
+  create_table "ingredients", force: :cascade do |t|
+    t.string "title"
+    t.bigint "ingredient_group_id"
+    t.string "quantity"
+    t.bigint "unit_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["ingredient_group_id"], name: "index_ingredients_on_ingredient_group_id"
+    t.index ["unit_id"], name: "index_ingredients_on_unit_id"
   end
 
   create_table "recipes", force: :cascade do |t|
@@ -45,6 +64,12 @@ ActiveRecord::Schema.define(version: 2018_09_13_175918) do
     t.index ["course_id"], name: "index_recipes_on_course_id"
     t.index ["cuisine_id"], name: "index_recipes_on_cuisine_id"
     t.index ["user_id"], name: "index_recipes_on_user_id"
+  end
+
+  create_table "units", force: :cascade do |t|
+    t.string "title"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -69,5 +94,8 @@ ActiveRecord::Schema.define(version: 2018_09_13_175918) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "ingredient_groups", "recipes"
+  add_foreign_key "ingredients", "ingredient_groups"
+  add_foreign_key "ingredients", "units"
   add_foreign_key "recipes", "users"
 end

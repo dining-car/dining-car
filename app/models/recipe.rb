@@ -6,6 +6,7 @@ class Recipe < ApplicationRecord
   belongs_to :user
   belongs_to :course, optional: true
   belongs_to :cuisine, optional: true
+  has_many :ingredient_groups
 
   validates :title, presence: true
 
