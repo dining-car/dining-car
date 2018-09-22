@@ -2,6 +2,8 @@
 
 class RecipesController < ApplicationController
   before_action :set_recipe, only: [:show, :edit, :update, :destroy]
+  before_action :set_course, only: [:index]
+  before_action :set_safe_params, only: [:index]
   before_action :authenticate_user!, except: [:show, :index]
 
   # GET /recipes
@@ -10,6 +12,7 @@ class RecipesController < ApplicationController
     @recipes = Recipe.all
     @recipes = @recipes.with_public if current_user.blank?
     @recipes = @recipes.search_for(params[:search]) if params[:search]
+    @recipes = @recipes.with_course(@course) if @course
     @recipes = @recipes.page params[:page]
   end
 
@@ -68,13 +71,19 @@ class RecipesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
+    def set_course
+      @course = Course.find_by_id(params[:course_id])
+    end
+
     def set_recipe
       @recipe = Recipe.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
+    def set_safe_params
+      @safe_params = params.permit(:course_id, :search, :recipe => [:title, :info, :public, :user_id, :search])
+    end
+
     def recipe_params
-      params.require(:recipe).permit(:title, :info, :public, :user_id, :search)
+      params.require(:recipe).permit(:title, :info, :public, :user_id, :search, :course_id)
     end
 end
