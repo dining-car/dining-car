@@ -2,4 +2,6 @@
 
 class Course < ApplicationRecord
   has_many :recipes
+
+  validates :title, presence: true, uniqueness: { case_sensitive: false }
 end
