@@ -14,6 +14,8 @@
 //= require activestorage
 //= require turbolinks
 //= require_tree .
+//= require jquery
+//= require cocoon
 
 document.addEventListener("turbolinks:load", function() {
   // Get all "navbar-burger" elements

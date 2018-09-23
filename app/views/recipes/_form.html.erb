@@ -73,47 +73,21 @@
     <%= form.text_area :info, class: 'textarea' %>
   </div>
 
-  <%= form.fields_for :ingredient_groups do |ig_form| %>
-  <div class="field is-horizontal">
-    <div class="field-label is-normal">
-      <%= ig_form.label :title, class: 'label' %>
-    </div>
-    <div class="field-body">
-      <div class="field">
-        <div class="control is-narrow">
-          <%= ig_form.text_field :title, class: 'input' %>
-        </div>
+  <div id="ingredient_groups">
+    <%= form.fields_for :ingredient_groups do |ig_form| %>
+    <% render 'ingredient_group_fields', f: ig_form %>
+    <% end %>
+    <div class="ig-links">
+      <div class="buttons has-addons is-right">
+        <%= link_to_add_association form, :ingredient_groups, class: 'button is-info' do %>
+        <span class="icon">
+          <i class="fa fa-plus-circle"></i>
+        </span>
+        <span><%= t('.add_ingredient_group')%></span>
+        <% end %>
       </div>
     </div>
   </div>
-  <%= ig_form.fields_for :ingredients do |i_form| %>
-  <div class="field is-horizontal">
-    <div class="field-label is-normal">
-      <%= i_form.label :quantity, class: 'label' %>
-    </div>
-
-    <div class="field-body">
-      <div class="field is-narrow">
-        <div class="control">
-          <%= i_form.text_field :quantity, value: rational_for_display(i_form.object.quantity), class: 'input' %>
-        </div>
-      </div>
-      <div class="field is-narrow">
-        <div class="control">
-          <div class="select">
-            <%= i_form.select :unit_id, unit_options %>
-          </div>
-        </div>
-      </div>
-      <div class="field">
-        <div class="control is-expanded">
-          <%= i_form.text_field :title, class: 'input is-fullwidth' %>
-        </div>
-      </div>
-    </div>
-  </div>
-  <% end %>
-  <% end %>
 
   <div class="field">
     <%= form.label :public, class: 'label' do %>

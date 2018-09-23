@@ -13,7 +13,7 @@ class Ingredient < ApplicationRecord
     begin
       self.quantity = Rational(quantity)
     rescue ArgumentError, ZeroDivisionError
-      errors.add(:quantity, I18n.t('.quantity_is_rational'))
+      errors.add(:quantity, I18n.t(:quantity_is_rational))
     end
   end
 end

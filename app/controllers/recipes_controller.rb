@@ -86,23 +86,24 @@ class RecipesController < ApplicationController
   end
 
   private
-    def set_course
-      @course = Course.find_by_id(params[:course_id])
-    end
 
-    def set_cuisine
-      @cuisine = Cuisine.find_by_id(params[:cuisine_id])
-    end
+  def set_course
+    @course = Course.find_by_id(params[:course_id])
+  end
 
-    def set_recipe
-      @recipe = Recipe.eager_load(ingredient_groups: { ingredients: :unit } ).find(params[:id])
-    end
+  def set_cuisine
+    @cuisine = Cuisine.find_by_id(params[:cuisine_id])
+  end
 
-    def set_safe_params
-      @safe_params = params.permit(:course_id, :search, :cuisine_id, :sort_by)
-    end
+  def set_recipe
+    @recipe = Recipe.eager_load(ingredient_groups: { ingredients: :unit } ).find(params[:id])
+  end
 
-    def recipe_params
-      params.require(:recipe).permit(:title, :info, :public, :search, :course_id, :cuisine_id, :preparation_time, :cooking_time, :servings, :source, ingredient_groups_attributes: [:id, :title, ingredients_attributes: [:id, :title, :unit_id, :quantity]])
-    end
+  def set_safe_params
+    @safe_params = params.permit(:course_id, :search, :cuisine_id, :sort_by)
+  end
+
+  def recipe_params
+    params.require(:recipe).permit(:title, :info, :public, :search, :course_id, :cuisine_id, :preparation_time, :cooking_time, :servings, :source, ingredient_groups_attributes: [:id, :title, :_destroy, ingredients_attributes: %i[id title unit_id quantity _destroy]])
+  end
 end
