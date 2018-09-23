@@ -5,6 +5,7 @@ class Ingredient < ApplicationRecord
   belongs_to :unit, optional: true, inverse_of: :ingredients
 
   validate :quantity_is_rational
+  validates :title, presence: true
 
   private
 

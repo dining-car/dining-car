@@ -1,6 +1,5 @@
 ---
 en:
-  '':
   activerecord:
     attributes:
       recipe:
@@ -53,11 +52,18 @@ en:
       edit_recipe: Edit recipe
     form:
       add_ingredient_group: Add ingredient group
+      add_instruction_group: Add instruction group
     ingredient_fields:
       delete_ingredient: Delete ingredient
     ingredient_group_fields:
       add_ingredient: Add ingredient
       delete_ingredient_group: Delete ingredient group
+      group_title: Group title
+    instruction_fields:
+      delete_instruction: Delete instruction
+    instruction_group_fields:
+      add_instruction: Add instruction
+      delete_instruction_group: Delete instruction group
       group_title: Group title
     new:
       create_recipe: Create recipe

@@ -68,11 +68,14 @@
               <hr class="navbar-divider">
             </div>
             <div class="column is-full">
+              <% @recipe.instruction_groups.each do |instruction_group| %>
+              <% unless instruction_group.title.blank? %> <p class="subtitle"><%= instruction_group.title %></p> <% end %>
               <ol>
-              <% ['Préchauffer votre four à 200°C.', 'Laver les pommes de terre et les poivrons, peler les oignons.', 'Couper les pommes de terre en quatre, dans le sens de la longueur.'].each_with_index do |direction, i| %>
-              <li><%= direction %></li>
+              <% instruction_group.instructions.each do |instruction| %>
+              <li><%= instruction.body %></li>
               <% end %>
               </ol>
+              <% end %>
             </div>
           </div>
         </div>

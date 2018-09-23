@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @instruction_group.title %>
+</p>
+
+<p>
+  <strong>Recipe:</strong>
+  <%= @instruction_group.recipe %>
+</p>
+
+<%= link_to 'Edit', edit_instruction_group_path(@instruction_group) %> |
+<%= link_to 'Back', instruction_groups_path %>

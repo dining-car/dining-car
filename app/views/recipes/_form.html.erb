@@ -89,6 +89,22 @@
     </div>
   </div>
 
+  <div id="instruction_groups">
+    <%= form.fields_for :instruction_groups do |ig_form| %>
+    <% render 'instruction_group_fields', f: ig_form %>
+    <% end %>
+    <div class="ig-links">
+      <div class="buttons has-addons is-right">
+        <%= link_to_add_association form, :instruction_groups, class: 'button is-info' do %>
+        <span class="icon">
+          <i class="fa fa-plus-circle"></i>
+        </span>
+        <span><%= t('.add_instruction_group')%></span>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
   <div class="field">
     <%= form.label :public, class: 'label' do %>
     <%= form.check_box :public %>

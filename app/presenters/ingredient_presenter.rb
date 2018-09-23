@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class IngredientPresenter
   delegate_missing_to :@ingredient
 

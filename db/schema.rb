@@ -12,7 +12,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_09_14_132453) do
+ActiveRecord::Schema.define(version: 2018_09_23_140608) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -63,6 +63,22 @@ ActiveRecord::Schema.define(version: 2018_09_14_132453) do
     t.datetime "updated_at", null: false
     t.index ["ingredient_group_id"], name: "index_ingredients_on_ingredient_group_id"
     t.index ["unit_id"], name: "index_ingredients_on_unit_id"
+  end
+
+  create_table "instruction_groups", force: :cascade do |t|
+    t.string "title"
+    t.bigint "recipe_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["recipe_id"], name: "index_instruction_groups_on_recipe_id"
+  end
+
+  create_table "instructions", force: :cascade do |t|
+    t.text "body"
+    t.bigint "instruction_group_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["instruction_group_id"], name: "index_instructions_on_instruction_group_id"
   end
 
   create_table "recipes", force: :cascade do |t|
@@ -116,6 +132,8 @@ ActiveRecord::Schema.define(version: 2018_09_14_132453) do
   add_foreign_key "ingredient_groups", "recipes"
   add_foreign_key "ingredients", "ingredient_groups"
   add_foreign_key "ingredients", "units"
+  add_foreign_key "instruction_groups", "recipes"
+  add_foreign_key "instructions", "instruction_groups"
   add_foreign_key "recipes", "accounts"
   add_foreign_key "recipes", "courses"
   add_foreign_key "recipes", "cuisines"

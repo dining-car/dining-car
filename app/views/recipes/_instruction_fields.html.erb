@@ -1,0 +1,25 @@
+<div class="instruction-nested-fields">
+  <div class="field is-horizontal">
+    <div class="field-label is-normal">
+      <%= f.label :body, class: 'label' %>
+    </div>
+
+    <div class="field-body">
+      <div class="field">
+        <div class="control is-expanded">
+          <%= f.text_area :body, class: 'textarea is-fullwidth' %>
+        </div>
+      </div>
+      <div class="field is-narrow">
+        <div class="control">
+          <%= link_to_remove_association f, wrapper_class: 'instruction-nested-fields', class: 'button is-danger is-outlined' do %>
+          <span><%= t('.delete_instruction') %></span>
+          <span class="icon is-small">
+            <i class="fa fa-times"></i>
+          </span>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
