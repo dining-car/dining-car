@@ -21,19 +21,15 @@
       </div>
     </div>
   </div>
-  <div id="ingredients">
-    <%= f.fields_for :ingredients do |i_form| %>
-    <% render 'ingredient_fields', f: i_form %>
+  <%= f.fields_for :ingredients do |i_form| %>
+  <% render 'ingredient_fields', f: i_form %>
+  <% end %>
+  <div class="buttons has-addons is-right">
+    <%= link_to_add_association f, :ingredients, class: 'button is-info' do %>
+    <span class="icon">
+      <i class="fa fa-plus-circle"></i>
+    </span>
+    <span><%= t('.add_ingredient')%></span>
     <% end %>
-  </div>
-  <div class="i-links">
-      <div class="buttons has-addons is-right">
-        <%= link_to_add_association f, :ingredients, class: 'button is-info' do %>
-        <span class="icon">
-          <i class="fa fa-plus-circle"></i>
-        </span>
-        <span><%= t('.add_ingredient')%></span>
-        <% end %>
-      </div>
   </div>
 </div>

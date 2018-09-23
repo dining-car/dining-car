@@ -35,6 +35,14 @@ class RecipesController < ApplicationController
   # GET /recipes/new
   def new
     @recipe = Recipe.new(account: current_account)
+    ingredient_group = @recipe.ingredient_groups.build
+    6.times do
+      ingredient_group.ingredients.build
+    end
+    instruction_group = @recipe.instruction_groups.build
+    6.times do
+      instruction_group.instructions.build
+    end
     authorize @recipe, :new?
   end
 

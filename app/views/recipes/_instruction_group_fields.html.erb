@@ -21,19 +21,15 @@
       </div>
     </div>
   </div>
-  <div id="instructions">
-    <%= f.fields_for :instructions do |i_form| %>
-    <% render 'instruction_fields', f: i_form %>
+  <%= f.fields_for :instructions do |i_form| %>
+  <% render 'instruction_fields', f: i_form %>
+  <% end %>
+  <div class="buttons has-addons is-right">
+    <%= link_to_add_association f, :instructions, class: 'button is-info' do %>
+    <span class="icon">
+      <i class="fa fa-plus-circle"></i>
+    </span>
+    <span><%= t('.add_instruction')%></span>
     <% end %>
-  </div>
-  <div class="i-links">
-      <div class="buttons has-addons is-right">
-        <%= link_to_add_association f, :instructions, class: 'button is-info' do %>
-        <span class="icon">
-          <i class="fa fa-plus-circle"></i>
-        </span>
-        <span><%= t('.add_instruction')%></span>
-        <% end %>
-      </div>
   </div>
 </div>
