@@ -9,6 +9,8 @@ class Recipe < ApplicationRecord
   has_many :ingredient_groups, inverse_of: :recipe
   has_many :instruction_groups, inverse_of: :recipe
 
+  has_one_attached :photo
+
   validates :title, presence: true
 
   accepts_nested_attributes_for :ingredient_groups, allow_destroy: true, reject_if: proc { |attributes| attributes['ingredients_attributes'].blank? || attributes['ingredients_attributes'].all? { |_, v| v['title'].blank? } }

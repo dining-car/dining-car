@@ -34,7 +34,7 @@ class RecipesController < ApplicationController
 
   # GET /recipes/new
   def new
-    @recipe = Recipe.new(account: current_account)
+    @recipe = Recipe.new(account: current_account, public: true)
     ingredient_group = @recipe.ingredient_groups.build
     6.times do
       ingredient_group.ingredients.build
@@ -112,6 +112,6 @@ class RecipesController < ApplicationController
   end
 
   def recipe_params
-    params.require(:recipe).permit(:title, :info, :public, :search, :course_id, :cuisine_id, :preparation_time, :cooking_time, :servings, :source, ingredient_groups_attributes: [:id, :title, :_destroy, ingredients_attributes: %i[id title unit_id quantity _destroy]], instruction_groups_attributes: [:id, :title, :_destroy, instructions_attributes: %i[id body _destroy]])
+    params.require(:recipe).permit(:title, :info, :public, :search, :photo, :course_id, :cuisine_id, :preparation_time, :cooking_time, :servings, :source, ingredient_groups_attributes: [:id, :title, :_destroy, ingredients_attributes: %i[id title unit_id quantity _destroy]], instruction_groups_attributes: [:id, :title, :_destroy, instructions_attributes: %i[id body _destroy]])
   end
 end

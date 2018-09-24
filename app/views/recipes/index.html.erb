@@ -53,7 +53,11 @@
             <div class="card medium round">
               <div class="card-image ">
                 <figure class="image">
-                  <%= image_tag "/background.png", "data-foca":"#{recipe.id}", alt: 'image' %>
+                  <% if recipe.photo.attached? %>
+                  <%= image_tag recipe.photo, alt: 'image' %>
+                  <% else %>
+                  <%= image_tag "/background.png", alt: 'image' %>
+                  <% end %>
                 </figure>
               </div>
               <div class="card-content">

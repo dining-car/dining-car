@@ -1,7 +1,7 @@
 <div class="container">
   <div class="column is-two-thirds is-offset-2">
     <section class="hero is-info is-bold is-small promo-block">
-      <div class="hero-body recipe-photo" style="background-image: url(/background.png)">
+      <div class="hero-body recipe-photo" style="background-image: <% if @recipe.photo.attached? %>url(<%= url_for(@recipe.photo)%>)<% else %>url(/background.png)<% end %>">
         <div class="container">
           <span class="tag is-black is-medium is-rounded">
             <%= @recipe.title %>
