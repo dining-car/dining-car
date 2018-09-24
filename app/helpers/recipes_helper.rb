@@ -71,6 +71,8 @@ module RecipesHelper
   end
 
   def rational_for_display(rational)
+    return '' if rational.nil?
+
     number = rational.to_r
     if number.denominator == 1
       return number.numerator

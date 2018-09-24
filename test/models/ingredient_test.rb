@@ -33,7 +33,9 @@ class IngredientTest < ActiveSupport::TestCase
   end
 
   test 'quantity that is nil is accepted' do
-    Ingredient.create!(ingredient_group: @ingredient_group, title: 'Onion', quantity: nil)
+    i = Ingredient.create!(ingredient_group: @ingredient_group, title: 'Onion', quantity: nil)
+    i.reload
+    assert_nil i.quantity
   end
 
   test 'cannot create ingredient with empty title - exception' do
