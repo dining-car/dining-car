@@ -14,7 +14,7 @@ class Recipe < ApplicationRecord
   validates :title, presence: true
 
   accepts_nested_attributes_for :ingredient_groups, allow_destroy: true, reject_if: proc { |attributes| attributes['ingredients_attributes'].blank? || attributes['ingredients_attributes'].all? { |_, v| v['title'].blank? } }
-  accepts_nested_attributes_for :instruction_groups, allow_destroy: true, reject_if: proc { |attributes| attributes['instructions_attributes'].blank? || attributes['instructions_attributes'].all? { |_, v| v['body'].blank? } }
+  accepts_nested_attributes_for :instruction_groups, allow_destroy: true
 
   scope :by_title, -> { order(title: :asc) }
   scope :by_created_at, -> { order(created_at: :desc) }

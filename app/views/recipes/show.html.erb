@@ -69,12 +69,14 @@
             </div>
             <div class="column is-full">
               <% @recipe.instruction_groups.each do |instruction_group| %>
+              <% present(instruction_group) do |instruction_group_presenter| %>
               <% unless instruction_group.title.blank? %> <p class="subtitle"><%= instruction_group.title %></p> <% end %>
               <ol>
-              <% instruction_group.instructions.each do |instruction| %>
-              <li><%= instruction.body %></li>
+              <% instruction_group_presenter.instructions.each do |instruction| %>
+              <li><%= instruction %></li>
               <% end %>
               </ol>
+              <% end %>
               <% end %>
             </div>
           </div>

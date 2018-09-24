@@ -40,9 +40,6 @@ class RecipesController < ApplicationController
       ingredient_group.ingredients.build
     end
     instruction_group = @recipe.instruction_groups.build
-    6.times do
-      instruction_group.instructions.build
-    end
     authorize @recipe, :new?
   end
 
@@ -112,6 +109,6 @@ class RecipesController < ApplicationController
   end
 
   def recipe_params
-    params.require(:recipe).permit(:title, :info, :public, :search, :photo, :course_id, :cuisine_id, :preparation_time, :cooking_time, :servings, :source, ingredient_groups_attributes: [:id, :title, :_destroy, ingredients_attributes: %i[id title unit_id quantity _destroy]], instruction_groups_attributes: [:id, :title, :_destroy, instructions_attributes: %i[id body _destroy]])
+    params.require(:recipe).permit(:title, :info, :public, :search, :photo, :course_id, :cuisine_id, :preparation_time, :cooking_time, :servings, :source, ingredient_groups_attributes: [:id, :title, :_destroy, ingredients_attributes: %i[id title unit_id quantity _destroy]], instruction_groups_attributes: [:id, :title, :instructions, :_destroy])
   end
 end

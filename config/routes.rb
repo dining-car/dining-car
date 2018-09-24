@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  resources :instructions
   resources :instruction_groups
   resources :accounts
   resources :ingredients

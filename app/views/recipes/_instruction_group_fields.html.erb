@@ -21,15 +21,16 @@
       </div>
     </div>
   </div>
-  <%= f.fields_for :instructions do |i_form| %>
-  <% render 'instruction_fields', f: i_form %>
-  <% end %>
-  <div class="buttons has-addons is-right">
-    <%= link_to_add_association f, :instructions, class: 'button is-info' do %>
-    <span class="icon">
-      <i class="fa fa-plus-circle"></i>
-    </span>
-    <span><%= t('.add_instruction')%></span>
-    <% end %>
+  <div class="field is-horizontal">
+    <div class="field-label is-normal">
+      <%= f.label :instructions, class: 'label' %>
+    </div>
+    <div class="field-body">
+      <div class="field">
+        <div class="control is-expanded">
+          <%= f.text_area :instructions, class: 'textarea is-fullwidth' %>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
