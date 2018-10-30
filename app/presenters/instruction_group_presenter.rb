@@ -11,6 +11,6 @@ class InstructionGroupPresenter
   attr_accessor :instruction_group
 
   def instructions
-    @instruction_group.instructions.split("\n")
+    @instruction_group.instructions&.split("\n")
   end
 end

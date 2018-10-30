@@ -6,8 +6,8 @@ class Recipe < ApplicationRecord
   belongs_to :account, inverse_of: :recipes
   belongs_to :course, optional: true, inverse_of: :recipes
   belongs_to :cuisine, optional: true, inverse_of: :recipes
-  has_many :ingredient_groups, inverse_of: :recipe
-  has_many :instruction_groups, inverse_of: :recipe
+  has_many :ingredient_groups, inverse_of: :recipe, dependent: :destroy
+  has_many :instruction_groups, inverse_of: :recipe, dependent: :destroy
 
   has_one_attached :photo
 

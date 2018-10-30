@@ -72,7 +72,7 @@
               <% present(instruction_group) do |instruction_group_presenter| %>
               <% unless instruction_group.title.blank? %> <p class="subtitle"><%= instruction_group.title %></p> <% end %>
               <ol>
-              <% instruction_group_presenter.instructions.each do |instruction| %>
+              <% instruction_group_presenter.instructions&.each do |instruction| %>
               <li><%= instruction %></li>
               <% end %>
               </ol>
