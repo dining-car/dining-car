@@ -13,7 +13,7 @@ class Recipe < ApplicationRecord
 
   validates :title, presence: true
 
-  accepts_nested_attributes_for :ingredient_groups, allow_destroy: true, reject_if: proc { |attributes| attributes['ingredients_attributes'].blank? || attributes['ingredients_attributes'].all? { |_, v| v['title'].blank? } }
+  accepts_nested_attributes_for :ingredient_groups, allow_destroy: true, reject_if: proc { |attributes| attributes["ingredients_attributes"].blank? || attributes["ingredients_attributes"].all? { |_, v| v["title"].blank? } }
   accepts_nested_attributes_for :instruction_groups, allow_destroy: true
 
   scope :by_title, -> { order(title: :asc) }
@@ -21,5 +21,5 @@ class Recipe < ApplicationRecord
   scope :with_public, -> { where(public: true) }
   scope :with_course, ->(course_id) { where(course_id: course_id) }
   scope :with_cuisine, ->(cuisine_id) { where(cuisine_id: cuisine_id) }
-  scope :search_for, ->(search) { where('title ilike ?', "%#{search}%") }
+  scope :search_for, ->(search) { where("title ilike ?", "%#{search}%") }
 end

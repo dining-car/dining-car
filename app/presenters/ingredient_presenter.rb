@@ -11,7 +11,7 @@ class IngredientPresenter
   attr_accessor :ingredient
 
   def quantity
-    return '' if @ingredient.quantity.nil?
+    return "" if @ingredient.quantity.nil?
 
     quantity_rational = @ingredient.quantity.to_r
     if quantity_rational.denominator == 1

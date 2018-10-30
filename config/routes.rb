@@ -9,8 +9,8 @@ Rails.application.routes.draw do
   resources :cuisines
   resources :courses
   resources :recipes
-  devise_for :users, path: 'auth', controllers: {
-    registrations:      'auth/registrations',
+  devise_for :users, path: "auth", controllers: {
+    registrations:      "auth/registrations",
   }
   root to: "recipes#index"
 end

@@ -35,7 +35,7 @@ class InstructionGroupsController < ApplicationController
 
     respond_to do |format|
       if @instruction_group.save
-        format.html { redirect_to @instruction_group, notice: 'Instruction group was successfully created.' }
+        format.html { redirect_to @instruction_group, notice: "Instruction group was successfully created." }
         format.json { render :show, status: :created, location: @instruction_group }
       else
         format.html { render :new }
@@ -50,7 +50,7 @@ class InstructionGroupsController < ApplicationController
     authorize @instruction_group, :update?
     respond_to do |format|
       if @instruction_group.update(instruction_group_params)
-        format.html { redirect_to @instruction_group, notice: 'Instruction group was successfully updated.' }
+        format.html { redirect_to @instruction_group, notice: "Instruction group was successfully updated." }
         format.json { render :show, status: :ok, location: @instruction_group }
       else
         format.html { render :edit }
@@ -65,7 +65,7 @@ class InstructionGroupsController < ApplicationController
     authorize @instruction_group, :destroy?
     @instruction_group.destroy
     respond_to do |format|
-      format.html { redirect_to instruction_groups_url, notice: 'Instruction group was successfully destroyed.' }
+      format.html { redirect_to instruction_groups_url, notice: "Instruction group was successfully destroyed." }
       format.json { head :no_content }
     end
   end

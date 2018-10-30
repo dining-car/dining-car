@@ -19,7 +19,7 @@ class RecipePolicy < ApplicationPolicy
   end
 
   private
-  def owned?
-    record.account.id == user&.account&.id
-  end
+    def owned?
+      record.account.id == user&.account&.id
+    end
 end

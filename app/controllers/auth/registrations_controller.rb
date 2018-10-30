@@ -5,15 +5,15 @@ class Auth::RegistrationsController < Devise::RegistrationsController
 
   protected
 
-  def build_resource(hash = nil)
-    super(hash)
+    def build_resource(hash = nil)
+      super(hash)
 
-    resource.build_account if resource.account.nil?
-  end
-
-  def configure_sign_up_params
-    devise_parameter_sanitizer.permit(:sign_up) do |u|
-      u.permit({ account_attributes: [:username] }, :email, :password, :password_confirmation)
+      resource.build_account if resource.account.nil?
     end
-  end
+
+    def configure_sign_up_params
+      devise_parameter_sanitizer.permit(:sign_up) do |u|
+        u.permit({ account_attributes: [:username] }, :email, :password, :password_confirmation)
+      end
+    end
 end

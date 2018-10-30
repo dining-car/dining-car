@@ -35,7 +35,7 @@ class IngredientGroupsController < ApplicationController
 
     respond_to do |format|
       if @ingredient_group.save
-        format.html { redirect_to @ingredient_group, notice: 'Ingredient group was successfully created.' }
+        format.html { redirect_to @ingredient_group, notice: "Ingredient group was successfully created." }
         format.json { render :show, status: :created, location: @ingredient_group }
       else
         format.html { render :new }
@@ -50,7 +50,7 @@ class IngredientGroupsController < ApplicationController
     authorize @ingredient_group, :update?
     respond_to do |format|
       if @ingredient_group.update(ingredient_group_params)
-        format.html { redirect_to @ingredient_group, notice: 'Ingredient group was successfully updated.' }
+        format.html { redirect_to @ingredient_group, notice: "Ingredient group was successfully updated." }
         format.json { render :show, status: :ok, location: @ingredient_group }
       else
         format.html { render :edit }
@@ -65,7 +65,7 @@ class IngredientGroupsController < ApplicationController
     authorize @ingredient_group, :destroy?
     @ingredient_group.destroy
     respond_to do |format|
-      format.html { redirect_to ingredient_groups_url, notice: 'Ingredient group was successfully destroyed.' }
+      format.html { redirect_to ingredient_groups_url, notice: "Ingredient group was successfully destroyed." }
       format.json { head :no_content }
     end
   end

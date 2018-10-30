@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require 'test_helper'
+require "test_helper"
 
 class IngredientGroupsControllerTest < ActionDispatch::IntegrationTest
   setup do
@@ -18,7 +18,7 @@ class IngredientGroupsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should create ingredient_group" do
-    assert_difference('IngredientGroup.count') do
+    assert_difference("IngredientGroup.count") do
       post ingredient_groups_url, params: { ingredient_group: { recipe: @ingredient_group.recipe, title: @ingredient_group.title } }
     end
 
@@ -41,7 +41,7 @@ class IngredientGroupsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should destroy ingredient_group" do
-    assert_difference('IngredientGroup.count', -1) do
+    assert_difference("IngredientGroup.count", -1) do
       delete ingredient_group_url(@ingredient_group)
     end
 

@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require 'test_helper'
+require "test_helper"
 
 class AccountsControllerTest < ActionDispatch::IntegrationTest
   setup do
@@ -18,7 +18,7 @@ class AccountsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should create account" do
-    assert_difference('Account.count') do
+    assert_difference("Account.count") do
       post accounts_url, params: { account: { display_name: @account.display_name, domain: @account.domain, followers_url: @account.followers_url, inbox_url: @account.inbox_url, last_webfingered_at: @account.last_webfingered_at, note: @account.note, outbox_url: @account.outbox_url, shared_inbox_url: @account.shared_inbox_url, uri: @account.uri, url: @account.url, username: @account.username } }
     end
 
@@ -41,7 +41,7 @@ class AccountsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should destroy account" do
-    assert_difference('Account.count', -1) do
+    assert_difference("Account.count", -1) do
       delete account_url(@account)
     end
 

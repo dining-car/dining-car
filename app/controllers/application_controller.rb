@@ -10,14 +10,14 @@ class ApplicationController < ActionController::Base
 
   protected
 
-  def current_account
-    @current_account ||= current_user.try(:account)
-  end
+    def current_account
+      @current_account ||= current_user.try(:account)
+    end
 
   private
 
-  def user_not_authorized
-    flash[:alert] = "You are not authorized to perform this action."
-    redirect_to(request.referrer || root_path)
-  end
+    def user_not_authorized
+      flash[:alert] = "You are not authorized to perform this action."
+      redirect_to(request.referrer || root_path)
+    end
 end

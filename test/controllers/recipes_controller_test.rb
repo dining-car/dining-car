@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require 'test_helper'
+require "test_helper"
 
 class RecipesControllerTest < ActionDispatch::IntegrationTest
   include Devise::Test::IntegrationHelpers
@@ -21,7 +21,7 @@ class RecipesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should create recipe" do
-    assert_difference('Recipe.count') do
+    assert_difference("Recipe.count") do
       post recipes_url, params: { recipe: { info: @recipe.info, public: @recipe.public, title: @recipe.title, account_id: @recipe.account_id } }
     end
 
@@ -44,7 +44,7 @@ class RecipesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should destroy recipe" do
-    assert_difference('Recipe.count', -1) do
+    assert_difference("Recipe.count", -1) do
       delete recipe_url(@recipe)
     end
 

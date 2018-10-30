@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require 'test_helper'
+require "test_helper"
 
 class CuisinesControllerTest < ActionDispatch::IntegrationTest
   setup do
@@ -18,7 +18,7 @@ class CuisinesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should create cuisine" do
-    assert_difference('Cuisine.count') do
+    assert_difference("Cuisine.count") do
       post cuisines_url, params: { cuisine: { title: @cuisine.title } }
     end
 
@@ -41,7 +41,7 @@ class CuisinesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should destroy cuisine" do
-    assert_difference('Cuisine.count', -1) do
+    assert_difference("Cuisine.count", -1) do
       delete cuisine_url(@cuisine)
     end
 

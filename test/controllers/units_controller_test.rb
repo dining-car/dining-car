@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require 'test_helper'
+require "test_helper"
 
 class UnitsControllerTest < ActionDispatch::IntegrationTest
   setup do
@@ -18,7 +18,7 @@ class UnitsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should create unit" do
-    assert_difference('Unit.count') do
+    assert_difference("Unit.count") do
       post units_url, params: { unit: { title: @unit.title } }
     end
 
@@ -41,7 +41,7 @@ class UnitsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should destroy unit" do
-    assert_difference('Unit.count', -1) do
+    assert_difference("Unit.count", -1) do
       delete unit_url(@unit)
     end
 
