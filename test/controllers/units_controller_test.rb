@@ -3,7 +3,10 @@
 require "test_helper"
 
 class UnitsControllerTest < ActionDispatch::IntegrationTest
+  include Devise::Test::IntegrationHelpers
+
   setup do
+    sign_in users(:admin)
     @unit = units(:one)
   end
 

@@ -1,55 +1,18 @@
 # frozen_string_literal: true
 
 class ApplicationPolicy
-  attr_reader :user, :record
+  attr_reader :current_account, :record
 
-  def initialize(user, record)
-    @user = user
-    @record = record
+  def initialize(current_account, record)
+    @current_account = current_account
+    @record          = record
   end
 
-  def index?
-    true
-  end
+  delegate :admin?, to: :current_user, allow_nil: true
 
-  def show?
-    scope.where(id: record.id).exists?
-  end
+  private
 
-  def create?
-    false
-  end
-
-  def new?
-    create?
-  end
-
-  def update?
-    false
-  end
-
-  def edit?
-    update?
-  end
-
-  def destroy?
-    false
-  end
-
-  def scope
-    Pundit.policy_scope!(user, record.class)
-  end
-
-  class Scope
-    attr_reader :user, :scope
-
-    def initialize(user, scope)
-      @user = user
-      @scope = scope
+    def current_user
+      current_account&.user
     end
-
-    def resolve
-      scope
-    end
-  end
 end

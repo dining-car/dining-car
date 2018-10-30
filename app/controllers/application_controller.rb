@@ -2,6 +2,8 @@
 
 class ApplicationController < ActionController::Base
   include Pundit
+  include Authorization
+
   protect_from_forgery
 
   rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized

@@ -3,7 +3,10 @@
 require "test_helper"
 
 class CuisinesControllerTest < ActionDispatch::IntegrationTest
+  include Devise::Test::IntegrationHelpers
+
   setup do
+    sign_in users(:admin)
     @cuisine = cuisines(:one)
   end
 
@@ -19,7 +22,7 @@ class CuisinesControllerTest < ActionDispatch::IntegrationTest
 
   test "should create cuisine" do
     assert_difference("Cuisine.count") do
-      post cuisines_url, params: { cuisine: { title: @cuisine.title } }
+      post cuisines_url, params: { cuisine: { title: "Martian" } }
     end
 
     assert_redirected_to cuisine_url(Cuisine.last)
@@ -36,7 +39,7 @@ class CuisinesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update cuisine" do
-    patch cuisine_url(@cuisine), params: { cuisine: { title: @cuisine.title } }
+    patch cuisine_url(@cuisine), params: { cuisine: { title: "Whovian" } }
     assert_redirected_to cuisine_url(@cuisine)
   end
 

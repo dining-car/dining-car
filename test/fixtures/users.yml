@@ -8,11 +8,14 @@ one:
   email: test@example.com
   confirmed_at: 2018-09-11T16:24:19Z
   account: one
+  admin: false
 
 # column: value
 #
-two:
+admin:
   email: the-other@example.com
+  confirmed_at: 2018-09-11T16:24:19Z
   account: two
+  admin: true
 
 # column: value
