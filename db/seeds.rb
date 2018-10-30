@@ -8,8 +8,8 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-Course.create([{title: 'Appetizer'}, {title: 'Breakfast'}, {title: 'Dessert'}, {title: 'Drink'}, {title: 'Main course'}, {title: 'Sauce'}])
+Course.create([{ title: "Appetizer" }, { title: "Breakfast" }, { title: "Dessert" }, { title: "Drink" }, { title: "Main course" }, { title: "Sauce" }])
 
-Cuisine.create([{title: 'Brazilian'}, {title: 'Cameroonian'}, {title: 'French'}, {title: 'Fusion'}, {title: 'Greek'}, {title: 'Indian'}, {title: 'Italian'}, {title: 'Moroccan'}, {title: 'Spanish'}, {title: 'Syrian'}, {title: 'Thai'}, {title: 'USA'}])
+Cuisine.create([{ title: "Brazilian" }, { title: "Cameroonian" }, { title: "Cuban" }, { title: "French" }, { title: "Fusion" }, { title: "Greek" }, { title: "Indian" }, { title: "Irish" }, { title: "Italian" }, { title: "Moroccan" }, { title: "Spanish" }, { title: "Syrian" }, { title: "Thai" }, { title: "USA" }])
 
-Unit.create([{title: 'teaspoon'}, {title: 'tablespoon'}, {title: 'cup'}, {title: 'clove'}, {title: 'head'}, {title: 'slice'}, {title: 'ml'}, {title: 'cl'}, {title: 'dl'}, {title: 'l'}, {title: 'g'}, {title: 'mg'}, {title: 'kg'}])
+Unit.create([{ title: "teaspoon" }, { title: "tablespoon" }, { title: "cup" }, { title: "clove" }, { title: "head" }, { title: "slice" }, { title: "ml" }, { title: "cl" }, { title: "dl" }, { title: "l" }, { title: "g" }, { title: "mg" }, { title: "kg" }])
