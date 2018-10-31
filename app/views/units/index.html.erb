@@ -1,27 +1,31 @@
-<p id="notice"><%= notice %></p>
+<div class="container">
+  <div class="section">
+    <p id="notice"><%= notice %></p>
 
-<h1>Units</h1>
+    <h1 class="title"><%= Unit.model_name.human %></h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+    <table class="table">
+      <thead>
+        <tr>
+          <th><%= Unit.human_attribute_name("title") %></th>
+          <th colspan="3"></th>
+        </tr>
+      </thead>
 
-  <tbody>
-    <% @units.each do |unit| %>
-      <tr>
-        <td><%= unit.title %></td>
-        <td><%= link_to 'Show', unit %></td>
-        <td><%= link_to 'Edit', edit_unit_path(unit) %></td>
-        <td><%= link_to 'Destroy', unit, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+      <tbody>
+        <% @units.each do |unit| %>
+          <tr>
+            <td><%= unit.title %></td>
+            <td><%= link_to t(".show"), unit %></td>
+            <td><%= link_to t(".edit"), edit_unit_path(unit) %></td>
+            <td><%= link_to t(".destroy"), unit, method: :delete, data: { confirm: t(".are_you_sure") } %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
 
-<br>
+    <br>
 
-<%= link_to 'New Unit', new_unit_path %>
+    <%= link_to t(".new"), new_unit_path, class: "button is-primary"%>
+  </div>
+</div>

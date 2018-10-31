@@ -1,6 +1,8 @@
-<h1>Editing Unit</h1>
+<div class="container">
+  <div class="section">
+    <h1 class="title"><%= t(".edit_unit") %></h1>
+    <hr />
 
-<%= render 'form', unit: @unit %>
-
-<%= link_to 'Show', @unit %> |
-<%= link_to 'Back', units_path %>
+    <%= render "form", unit: @unit %>
+  </div>
+</div>

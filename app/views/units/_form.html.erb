@@ -1,22 +1,22 @@
+<% if unit.errors.any? %>
+<div class="notification is-danger">
+  <h2><%= pluralize(unit.errors.count, "error") %> prohibited this unit from being saved:</h2>
+
+  <ul>
+    <% unit.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+    <% end %>
+  </ul>
+</div>
+<% end %>
+
 <%= form_with(model: unit, local: true) do |form| %>
-  <% if unit.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(unit.errors.count, "error") %> prohibited this unit from being saved:</h2>
-
-      <ul>
-      <% unit.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
   <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title %>
+    <%= form.label :title, class: "label" %>
+    <%= form.text_field :title, class: "input" %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit class: 'button is-info'%>
   </div>
 <% end %>
