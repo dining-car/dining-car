@@ -5,6 +5,10 @@ class RecipePolicy < ApplicationPolicy
     true
   end
 
+  def edit?
+    update?
+  end
+
   def update?
     owned?
   end
@@ -14,16 +18,16 @@ class RecipePolicy < ApplicationPolicy
   end
 
   def new?
-    user.present?
+    current_account.present?
   end
 
   def show?
     record.public? ||
-      user.present?
+      owned?
   end
 
   private
     def owned?
-      record.account.id == user&.account&.id
+      record.account.id == current_account&.id
     end
 end
