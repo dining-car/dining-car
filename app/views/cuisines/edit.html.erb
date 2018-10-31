@@ -1,6 +1,8 @@
-<h1>Editing Cuisine</h1>
+<div class="container">
+  <div class="section">
+    <h1 class="title"><%= t(".edit_cuisine") %></h1>
+    <hr />
 
-<%= render 'form', cuisine: @cuisine %>
-
-<%= link_to 'Show', @cuisine %> |
-<%= link_to 'Back', cuisines_path %>
+    <%= render "form", cuisine: @cuisine %>
+  </div>
+</div>

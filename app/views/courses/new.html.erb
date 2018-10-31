@@ -1,5 +1,8 @@
-<h1>New Course</h1>
+<div class="container">
+  <div class="section">
+    <h1 class="title"><%= t(".new_course") %></h1>
+    <hr />
 
-<%= render 'form', course: @course %>
-
-<%= link_to 'Back', courses_path %>
+    <%= render "form", course: @course %>
+  </div>
+</div>

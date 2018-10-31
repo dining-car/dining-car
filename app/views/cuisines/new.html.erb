@@ -1,5 +1,8 @@
-<h1>New Cuisine</h1>
+<div class="container">
+  <div class="section">
+    <h1 class="title"><%= t(".new_cuisine") %></h1>
+    <hr />
 
-<%= render 'form', cuisine: @cuisine %>
-
-<%= link_to 'Back', cuisines_path %>
+    <%= render "form", cuisine: @cuisine %>
+  </div>
+</div>

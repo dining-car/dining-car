@@ -1,9 +1,13 @@
-<p id="notice"><%= notice %></p>
+<div class="container">
+  <div class="section">
+    <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @cuisine.title %>
-</p>
+    <p>
+      <strong>Title:</strong>
+      <%= @cuisine.title %>
+    </p>
 
-<%= link_to 'Edit', edit_cuisine_path(@cuisine) %> |
-<%= link_to 'Back', cuisines_path %>
+    <%= link_to 'Edit', edit_cuisine_path(@cuisine) %> |
+    <%= link_to 'Back', cuisines_path %>
+  </div>
+</div>

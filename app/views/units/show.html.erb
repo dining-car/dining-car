@@ -1,9 +1,13 @@
-<p id="notice"><%= notice %></p>
+<div class="container">
+  <div class="section">
+    <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @unit.title %>
-</p>
+    <p>
+      <strong>Title:</strong>
+      <%= @unit.title %>
+    </p>
 
-<%= link_to 'Edit', edit_unit_path(@unit) %> |
-<%= link_to 'Back', units_path %>
+    <%= link_to 'Edit', edit_unit_path(@unit) %> |
+    <%= link_to 'Back', units_path %>
+  </div>
+</div>

@@ -1,6 +1,8 @@
-<h1>Editing Course</h1>
+<div class="container">
+  <div class="section">
+    <h1 class="title"><%= t(".edit_course") %></h1>
+    <hr />
 
-<%= render 'form', course: @course %>
-
-<%= link_to 'Show', @course %> |
-<%= link_to 'Back', courses_path %>
+    <%= render "form", course: @course %>
+  </div>
+</div>
