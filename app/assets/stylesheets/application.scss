@@ -52,3 +52,14 @@
 .ellipsed-info {
   @include multiLineEllipsis($lineHeight: 1.5em, $lineCount: 3, $bgColor: white);
 }
+
+.subtitle.ellipsed-title {
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: -0.4px;
+}
+.content > .ellipsed-info {
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: -0.4px;
+}

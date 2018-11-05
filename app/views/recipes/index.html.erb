@@ -49,6 +49,7 @@
         </div>
         <div class="columns is-multiline">
           <% @recipes.each do |recipe| %>
+          <% present(recipe) do |recipe_presenter| %>
           <div class="column is-one-quarter">
             <div class="card medium round">
               <div class="card-image ">
@@ -63,16 +64,18 @@
               <div class="card-content">
                 <div class="media">
                   <div class="media-content">
-                    <p class="subtitle is-5 no-padding ellipsed-title"><%= link_to recipe.title, short_account_recipe_path(recipe.account, recipe) %></p>
+                    <p class="subtitle is-5 no-padding ellipsed-title"><%= link_to recipe.title, short_account_recipe_path(recipe.account, recipe), title: recipe.title %></p>
                   </div>
                 </div>
                 <div class="content">
-                  <p class="ellipsed-info"><%= recipe.info %></p>
+                  <p class="ellipsed-info"><%= recipe.info %><br />
+                  <i class="fa fa-clock-o" aria-hidden="true" title="<%= t(".total_time") %>"></i> <%= recipe_presenter.total_time %> <%= t('units.minutes') %></p>
                   <p class="is-pulled-right"><small><%= l(recipe.created_at.to_date) %></small></p>
                 </div>
               </div>
             </div>
           </div>
+          <% end %>
           <% end %>
         </div>
         <%= paginate @recipes %>

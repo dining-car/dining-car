@@ -71,6 +71,8 @@ en:
       created_by: Created by
       edit_recipe: Edit recipe
       last_modification: Last modification
+    index:
+      total_time: Preparation and cooking time
   time:
     formats:
       default: "%d/%m/%Y %H:%M"
