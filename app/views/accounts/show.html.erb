@@ -50,7 +50,8 @@
           </div>
           <% end %>
         </div>
-        <%= paginate @recipes %>
+        <%= link_to t('views.pagination.previous').html_safe, short_account_url(@account, page: previous_page), rel: 'prev', class: 'pagination-previous' unless current_page_first? %>
+        <%= link_to t('views.pagination.next').html_safe, short_account_url(@account, page: next_page), rel: 'next', class: 'pagination-next' unless current_page_last? %>
       </div>
     </div>
   </div>
