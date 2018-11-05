@@ -5,7 +5,9 @@ class AccountsController < ApplicationController
 
   # GET /accounts/1
   def show
-    @recipes = @account.recipes.where(public: true)
+    @recipes = @account.recipes
+    @recipes = @recipes.by_created_at
+    @recipes = @recipes.with_public if current_account != @account
     @recipes = @recipes.page params[:page]
   end
 
