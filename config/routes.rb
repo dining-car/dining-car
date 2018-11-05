@@ -9,14 +9,14 @@ Rails.application.routes.draw do
     registrations:      "auth/registrations",
   }
 
-  get '/accounts/:username', to: redirect('/@%{username}'), constraints: lambda { |req| req.format.nil? || req.format.html? }
+  get "/accounts/:username", to: redirect("/@%{username}"), constraints: lambda { |req| req.format.nil? || req.format.html? }
 
   resources :accounts, only: :show, param: :username do
     resources :recipes, except: [:index]
   end
 
-  get '/@:username', to: 'accounts#show', as: :short_account
-  get '/@:account_username/:id', to: 'recipes#show', as: :short_account_recipe
+  get "/@:username", to: "accounts#show", as: :short_account
+  get "/@:account_username/:id", to: "recipes#show", as: :short_account_recipe
 
   root to: "recipes#index"
 end

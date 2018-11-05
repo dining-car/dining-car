@@ -36,7 +36,7 @@ module RecipesHelper
   def recipe_sources
     source_links = @recipe.source.each_with_index.map do |source, i|
       next if source.blank?
-      link_to("[#{i+1}]", source)
+      link_to("[#{i + 1}]", source)
     end
 
     safe_join(source_links, ", ")

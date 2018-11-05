@@ -17,6 +17,6 @@ class Account < ApplicationRecord
   end
 
   def self.find_local(username)
-    where(domain: nil).where('lower(username) = ?', username.to_s.downcase).take
+    where(domain: nil).where("lower(username) = ?", username.to_s.downcase).take
   end
 end
