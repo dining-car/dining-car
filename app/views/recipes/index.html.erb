@@ -55,7 +55,7 @@
               <div class="card-image ">
                 <figure class="image">
                   <% if recipe.photo.attached? %>
-                  <%= image_tag recipe.photo, alt: 'image' %>
+                  <%= image_tag recipe.main_picture_variant, alt: 'image' %>
                   <% else %>
                   <%= image_tag "/background.png", alt: 'image' %>
                   <% end %>

@@ -24,6 +24,8 @@ GEM
       erubi (~> 1.4)
       rails-dom-testing (~> 2.0)
       rails-html-sanitizer (~> 1.0, >= 1.0.3)
+    active_storage_validations (0.5.2)
+      rails (~> 5.2.0)
     activejob (5.2.1)
       activesupport (= 5.2.1)
       globalid (>= 0.3.6)
@@ -134,6 +136,7 @@ GEM
       mimemagic (~> 0.3.2)
     method_source (0.9.0)
     mimemagic (0.3.2)
+    mini_magick (4.9.2)
     mini_mime (1.0.1)
     mini_portile2 (2.3.0)
     minitest (5.11.3)
@@ -259,6 +262,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  active_storage_validations
   babosa
   bootsnap (>= 1.1.0)
   bulma-rails
@@ -275,6 +279,7 @@ DEPENDENCIES
   kaminari
   letter_opener (~> 1.6)
   listen (~> 3.1)
+  mini_magick
   pg (~> 1)
   pry-byebug
   puma (~> 3.11)

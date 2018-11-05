@@ -2,6 +2,8 @@
 
 require "babosa"
 
+MAX_RECIPE_PHOTO_AREA = 490_000 # 700px x 700px
+
 class Recipe < ApplicationRecord
   extend FriendlyId
   friendly_id :title, use: :slugged
@@ -19,6 +21,7 @@ class Recipe < ApplicationRecord
   has_many :instruction_groups, inverse_of: :recipe, dependent: :destroy
 
   has_one_attached :photo
+  validates :photo, size: { less_than: 10.megabytes, message: I18n.t('photo.size.too_big') }
 
   validates :title, presence: true
 
@@ -31,4 +34,9 @@ class Recipe < ApplicationRecord
   scope :with_course, ->(course_id) { where(course_id: course_id) }
   scope :with_cuisine, ->(cuisine_id) { where(cuisine_id: cuisine_id) }
   scope :search_for, ->(search) { where("title ilike ?", "%#{search}%") }
+
+  def main_picture_variant
+    variation = ActiveStorage::Variation.new(ImageResizer.resize_on_bigger_size(max_area: MAX_RECIPE_PHOTO_AREA, blob: photo.blob))
+    ActiveStorage::Variant.new(photo.blob, variation)
+  end
 end
