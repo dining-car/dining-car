@@ -33,6 +33,15 @@ module RecipesHelper
     end)
   end
 
+  def recipe_sources
+    source_links = @recipe.source.each_with_index.map do |source, i|
+      next if source.blank?
+      link_to("[#{i+1}]", source)
+    end
+
+    safe_join(source_links, ", ")
+  end
+
   def cuisines_menu
     safe_join(@cuisines.collect do |c|
       next if c.recipes_count == 0

@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class RecipesController < ApplicationController
+  before_action :set_account, only: [:show]
   before_action :set_recipe, only: [:show, :edit, :update, :destroy]
   before_action :set_course, only: [:index]
   before_action :set_cuisine, only: [:index]
@@ -91,6 +92,9 @@ class RecipesController < ApplicationController
   end
 
   private
+    def set_account
+      @account = Account.find_local!(params[:account_username])
+    end
 
     def set_course
       @course = Course.find_by_id(params[:course_id])

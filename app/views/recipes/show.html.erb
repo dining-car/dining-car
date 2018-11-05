@@ -78,6 +78,12 @@
               </ol>
               <% end %>
               <% end %>
+              <% if @recipe.source.present? %>
+              <p>
+                <%= t(".recipe_sources") %>
+                <%= recipe_sources %>
+              </p>
+              <% end %>
             </div>
           </div>
         </div>
@@ -85,14 +91,14 @@
       <div class="card-content">
         <div class="columns">
           <div class="column is-8">
-            <p class="subtitle is-5 is-marginless"><%= t('.created_by') %> <%= @recipe.account.display_name %></p>
+            <p class="subtitle is-5 is-marginless"><%= t('.created_by') %> <%= link_to @recipe.account.display_name, short_account_url(@recipe.account) %></p>
             <p class="subtitle is-7"><%= t('.last_modification') %> <%= l @recipe.updated_at %></p>
           </div>
           <div class="column is-2">
-            <%= link_to t('.edit_recipe'), edit_recipe_path(@recipe), class: 'button is-info' %>
+            <%= link_to t('.edit_recipe'), edit_account_recipe_path(@recipe.account, @recipe), class: 'button is-info' %>
           </div>
           <div class="column is-2">
-            <%= link_to 'Delete', [@recipe], method: :delete, class: 'button is-danger',
+            <%= link_to 'Delete', [@recipe.account, @recipe], method: :delete, class: 'button is-danger',
                data: { confirm: "Are you sure?" } %>
           </div>
         </div>

@@ -10,7 +10,7 @@
 </div>
 <% end %>
 
-<%= form_with(model: recipe, local: true) do |form| %>
+<%= form_with(model: [recipe.account, recipe], local: true) do |form| %>
 <div class="columns">
   <div class="column is-one-third">
     <div class="columns is-multiline">

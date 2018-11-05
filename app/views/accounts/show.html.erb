@@ -1,59 +1,57 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Username:</strong>
-  <%= @account.username %>
-</p>
-
-<p>
-  <strong>Domain:</strong>
-  <%= @account.domain %>
-</p>
-
-<p>
-  <strong>Display name:</strong>
-  <%= @account.display_name %>
-</p>
-
-<p>
-  <strong>Note:</strong>
-  <%= @account.note %>
-</p>
-
-<p>
-  <strong>Uri:</strong>
-  <%= @account.uri %>
-</p>
-
-<p>
-  <strong>Url:</strong>
-  <%= @account.url %>
-</p>
-
-<p>
-  <strong>Last webfingered at:</strong>
-  <%= @account.last_webfingered_at %>
-</p>
-
-<p>
-  <strong>Inbox url:</strong>
-  <%= @account.inbox_url %>
-</p>
-
-<p>
-  <strong>Outbox url:</strong>
-  <%= @account.outbox_url %>
-</p>
-
-<p>
-  <strong>Shared inbox url:</strong>
-  <%= @account.shared_inbox_url %>
-</p>
-
-<p>
-  <strong>Followers url:</strong>
-  <%= @account.followers_url %>
-</p>
-
-<%= link_to 'Edit', edit_account_path(@account) %> |
-<%= link_to 'Back', accounts_path %>
+<div class="container">
+  <div class="section">
+    <div class="columns">
+      <div class="column is-10 is-offset-1">
+        <div class="columns is-multiline">
+          <div class="column is-full">
+            <div class="card">
+              <div class="card-content">
+                <div class="media">
+                  <div class="media-left">
+                    <figure class="image is-128x128">
+                      <img src="https://picsum.photos/128/128">
+                    </figure>
+                  </div>
+                  <div class="media-content">
+                    <p class="title is-4"><%= @account.display_name %></p>
+                    <p class="subtitle is-6"><%= @account.username %></p>
+                  </div>
+                </div>
+                <div class="content">
+                  <%= @account.note %>
+                </div>
+              </div>
+            </div>
+          </div>
+          <% @recipes.each do |recipe| %>
+          <div class="column is-one-quarter">
+            <div class="card medium round">
+              <div class="card-image ">
+                <figure class="image">
+                  <% if recipe.photo.attached? %>
+                  <%= image_tag recipe.photo, alt: 'image' %>
+                  <% else %>
+                  <%= image_tag "/background.png", alt: 'image' %>
+                  <% end %>
+                </figure>
+              </div>
+              <div class="card-content">
+                <div class="media">
+                  <div class="media-content">
+                    <p class="subtitle is-5 no-padding ellipsed-title"><%= link_to recipe.title, short_account_recipe_path(recipe.account, recipe) %></p>
+                  </div>
+                </div>
+                <div class="content">
+                  <p class="ellipsed-info"><%= recipe.info %></p>
+                  <p class="is-pulled-right"><small><%= l(recipe.created_at.to_date) %></small></p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <% end %>
+        </div>
+        <%= paginate @recipes %>
+      </div>
+    </div>
+  </div>
+</div>
