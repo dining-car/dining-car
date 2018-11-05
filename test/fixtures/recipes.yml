@@ -1,13 +1,15 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  title: MyString
+  title: Tortilla
   info: MyText
   public: false
   account: one
+  slug: tortilla
 
 two:
-  title: MyString
+  title: Cake
   info: MyText
   public: false
   account: two
+  slug: cake

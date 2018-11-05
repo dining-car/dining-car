@@ -28,6 +28,9 @@ gem "pundit" # authorization
 
 gem "cocoon" # interactive nested resources forms
 
+gem "friendly_id", "~> 5.2.0" # generate slugs for recipes
+gem "babosa" # used with friendly_id to generate unicode slugs
+
 group :development, :test do
   gem "pry-byebug"
   gem "byebug", platforms: [:mri, :mingw, :x64_mingw]

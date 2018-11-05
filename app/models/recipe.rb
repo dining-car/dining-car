@@ -1,6 +1,15 @@
 # frozen_string_literal: true
 
+require "babosa"
+
 class Recipe < ApplicationRecord
+  extend FriendlyId
+  friendly_id :title, use: :slugged
+
+  def normalize_friendly_id(input)
+    input.to_s.to_slug.normalize.to_s
+  end
+
   paginates_per 16
 
   belongs_to :account, inverse_of: :recipes
