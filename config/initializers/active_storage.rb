@@ -59,7 +59,7 @@ Rails.application.config.to_prepare do
   ActiveStorage::Blob.class_eval do
     def service_url(expires_in: service.url_expires_in, disposition: :inline, filename: nil, **options)
       filename = ActiveStorage::Filename.wrap(filename || self.filename)
-      expires_in = false if metadata[:acl] == 'public'
+      expires_in = false if metadata[:acl] == "public"
       service.url key, expires_in: expires_in, filename: filename, content_type: content_type,
         disposition: forcibly_serve_as_binary? ? :attachment : disposition, **options
     end
@@ -82,7 +82,7 @@ Rails.application.config.to_prepare do
   ActiveStorage::Attached.class_eval do
     attr_reader :name, :record, :dependent, :acl
 
-    def initialize(name, record, dependent:, acl: 'private')
+    def initialize(name, record, dependent:, acl: "private")
       @name, @record, @dependent, @acl = name, record, dependent, acl
     end
 
@@ -110,7 +110,7 @@ Rails.application.config.to_prepare do
 
   if defined?(ActiveStorage::Service)
     ActiveStorage::Service.class_eval do
-      def upload(key, io, checksum: nil, acl: 'private')
+      def upload(key, io, checksum: nil, acl: "private")
         raise NotImplementedError
       end
     end
@@ -118,7 +118,7 @@ Rails.application.config.to_prepare do
 
   if defined?(ActiveStorage::Service::DiskService)
     ActiveStorage::Service::DiskService.class_eval do
-      def upload(key, io, checksum: nil, acl: 'private')
+      def upload(key, io, checksum: nil, acl: "private")
         instrument :upload, key: key, checksum: checksum do
           IO.copy_stream(io, make_path_for(key))
           ensure_integrity_of(key, checksum) if checksum
@@ -136,13 +136,13 @@ Rails.application.config.to_prepare do
         uri.to_s
       end
 
-      def upload(key, io, checksum: nil, content_type: 'binary/octet-stream', acl: 'private')
+      def upload(key, io, checksum: nil, content_type: "binary/octet-stream", acl: "private")
         instrument :upload, key: key, checksum: checksum, acl: acl do
           begin
             object_for(key).put(upload_options.merge(body: io,
                                                      content_md5: checksum,
                                                      content_type: content_type,
-                                                     acl: acl == 'public' ? 'public-read' : 'private'))
+                                                     acl: acl == "public" ? "public-read" : "private"))
           rescue Aws::S3::Errors::BadDigest
             raise ActiveStorage::IntegrityError
           end

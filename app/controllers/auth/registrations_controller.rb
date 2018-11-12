@@ -23,6 +23,6 @@ class Auth::RegistrationsController < Devise::RegistrationsController
     end
 
     def allowed_registrations?
-      ActiveModel::Type::Boolean.new.cast(ENV['OPEN_REGISTRATIONS'])
+      ActiveModel::Type::Boolean.new.cast(ENV["OPEN_REGISTRATIONS"])
     end
 end

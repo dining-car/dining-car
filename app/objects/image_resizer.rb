@@ -3,7 +3,7 @@
 class ImageResizer
   class << self
     def jpeg?(blob)
-      blob.content_type.include? 'jpeg'
+      blob.content_type.include? "jpeg"
     end
 
     def optimize
@@ -15,10 +15,10 @@ class ImageResizer
     def optimize_jpeg
       {
         strip: true,
-        'sampling-factor': '4:2:0',
-        quality: '85',
-        interlace: 'JPEG',
-        colorspace: 'sRGB'
+        'sampling-factor': "4:2:0",
+        quality: "85",
+        interlace: "JPEG",
+        colorspace: "sRGB"
       }
     end
 
@@ -33,8 +33,8 @@ class ImageResizer
       width = blob.metadata[:width].to_f
       height = blob.metadata[:height].to_f
 
-      new_width = Math.sqrt(max_area * (width/height)).round
-      new_height = Math.sqrt(max_area * (height/width)).round
+      new_width = Math.sqrt(max_area * (width / height)).round
+      new_height = Math.sqrt(max_area * (height / width)).round
 
       {
         resize: "#{new_width}x#{new_height}"
