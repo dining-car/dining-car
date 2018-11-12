@@ -10,6 +10,6 @@ class RecipePresenter
   attr_accessor :recipe
 
   def total_time
-    preparation_time + cooking_time
+    preparation_time.to_i + cooking_time.to_i
   end
 end
