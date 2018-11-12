@@ -6,4 +6,8 @@ module ApplicationHelper
     presenter = klass.new(model, self)
     yield(presenter) if block_given?
   end
+
+  def open_registrations?
+    ActiveModel::Type::Boolean.new.cast(ENV['OPEN_REGISTRATIONS'])
+  end
 end
