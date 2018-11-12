@@ -20,7 +20,7 @@ class Recipe < ApplicationRecord
   has_many :ingredient_groups, inverse_of: :recipe, dependent: :destroy
   has_many :instruction_groups, inverse_of: :recipe, dependent: :destroy
 
-  has_one_attached :photo
+  has_one_attached :photo, acl: "public"
   validates :photo, size: { less_than: 10.megabytes, message: I18n.t('photo.size.too_big') }
 
   validates :title, presence: true
