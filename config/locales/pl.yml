@@ -1,0 +1,87 @@
+---
+pl:
+  activerecord:
+    attributes:
+      recipe:
+        info: Informacje
+        title: Nazwa
+    models:
+      recipe:
+        one: Przepis
+        few: Przepisy
+        many: Przepisów
+        other: Przepisów
+  browse_recipes: Przeglądaj przepisy
+  create_recipe: Utwórz przepis
+  date:
+    formats:
+      default: "%d/%m/%Y"
+      long: "%B %d %Y"
+      short: "%b %d"
+  devise:
+    confirmations:
+      new:
+        resend_confirmation_instructions: Wyślij instrukcje potwierdzenia ponownie
+    passwords:
+      edit:
+        change_my_password: Zmień hasło
+        change_your_password: Zmień swoje hasło
+        confirm_new_password: Potwierdź nowe hasło
+        new_password: Nowe hasło
+      new:
+        forgot_your_password: Zapomniałem(-am) hasła
+        send_me_reset_password_instructions: Wyślij instrukcje resetowania hasła
+    registrations:
+      edit:
+        leave_blank_if_you_don_t_want_to_change_it: Pozostaw puste, jeżeli nie chcesz zmieniać
+        update: Aktualizuj
+        we_need_your_current_password_to_confirm_your_changes: Potrzebujemy aktualnego hasła, aby dokonać zmian
+      new:
+        sign_up: Zarejestruj się
+    sessions:
+      new:
+        sign_in: Zaloguj się
+    shared:
+      minimum_password_length: Minimalna długość hasła
+  errors:
+    messages:
+      not_saved: Nie zapisano
+  quantity_is_rational: Wymierna ilość
+  recipes:
+    edit:
+      edit_recipe: Edytuj przepis
+    form:
+      add_ingredient_group: Dodaj grupę składników
+      add_instruction_group: Dodaj grupę instrukcji
+    ingredient_fields:
+      delete_ingredient: Usuń składnik
+    ingredient_group_fields:
+      add_ingredient: Dodaj składnik
+      delete_ingredient_group: Usuń grupę składników
+      group_title: Tytuł grupy
+    instruction_fields:
+      delete_instruction: Usuń instrukcję
+    instruction_group_fields:
+      add_instruction: Dodaj instrukcję
+      delete_instruction_group: Usuń grupę instrukcji
+      group_title: Tytuł grupy
+    new:
+      create_recipe: Utwórz przepis
+    show:
+      created_by: Utworzony przez
+      edit_recipe: Edytuj przepis
+      last_modification: Ostatnia zmiana
+    index:
+      total_time: Czas przygotowania i gotowania
+  time:
+    formats:
+      default: "%d/%m/%Y %H:%M"
+  units:
+    minutes: Minuty
+    portions: Porcje
+  views:
+    pagination:
+      first: Pierwsza
+      last: Ostatnia
+      next: Następna
+      previous: Poprzednia
