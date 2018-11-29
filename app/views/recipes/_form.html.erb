@@ -76,7 +76,7 @@
       <div class="column is-full">
         <div class="field">
           <%= form.label :source, class: 'label' %>
-          <%= form.text_field :source, class: 'input', placeholder: 'Add a source' %>
+          <%= form.text_field :source, value: form.object.source&.join(","), class: 'input', placeholder: 'Add a source' %>
         </div>
       </div>
     </div>
