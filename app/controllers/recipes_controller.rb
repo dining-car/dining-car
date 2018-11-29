@@ -52,7 +52,7 @@ class RecipesController < ApplicationController
   # POST /recipes
   # POST /recipes.json
   def create
-    @recipe = Recipe.new(recipe_params.merge(account: current_account, source: recipe_params["source"].split(",")))
+    @recipe = Recipe.new(recipe_params.merge(account: current_account, source: recipe_params["source"]&.split(",")))
 
     respond_to do |format|
       if @recipe.save
@@ -70,7 +70,7 @@ class RecipesController < ApplicationController
   def update
     authorize @recipe, :update?
     respond_to do |format|
-      if @recipe.update(recipe_params.merge(source: recipe_params["source"].split(",")))
+      if @recipe.update(recipe_params.merge(source: recipe_params["source"]&.split(",")))
         format.html { redirect_to short_account_recipe_url(@recipe.account, @recipe), notice: "Recipe was successfully updated." }
         format.json { render :show, status: :ok, location: @recipe }
       else
