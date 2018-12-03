@@ -3,7 +3,7 @@ Dining Car
 
 Dining Car is **free, open-source** Ruby on Rails recipe management and social network that allows users to create, store and share their recipes. It is federation-enabled using the [ActivityPub](https://activitypub.rocks/) protocol used by softwares such [Mastodon](https://joinmastodon.org), [Pleroma](https://pleroma.social/) and [Plume](https://github.com/Plume-org/Plume).
 
-Dining Car is heavily inspired by [OpenEats](https://github.com/open-eats/OpenEats), but it's focus is slightly different.
+Dining Car is heavily inspired by [OpenEats](https://github.com/open-eats/OpenEats), but its focus is slightly different.
 
 These are Dining Car core-features:
 
