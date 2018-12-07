@@ -54,6 +54,8 @@ You can run tests with
 rails tests
 ```
 
+Set a COVERAGE environment variable with any value if you want to see the coverage report by simplecov.
+
 You can check localization status with:
 
 ```
