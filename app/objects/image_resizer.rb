@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Code mostly from https://prograils.com/posts/rails-5-2-active-storage-new-approach-to-file-uploads
 
 class ImageResizer
@@ -15,7 +17,7 @@ class ImageResizer
     def optimize_jpeg
       {
         strip: true,
-        'sampling-factor': "4:2:0",
+        "sampling-factor": "4:2:0",
         quality: "85",
         interlace: "JPEG",
         colorspace: "sRGB"

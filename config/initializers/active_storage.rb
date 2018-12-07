@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Monkey patch S3 Service to allow using a cdn url, should be removed when updating activestorage if this is implemented
 Rails.application.config.to_prepare do
   ActiveStorage::Attached::Macros.module_eval do

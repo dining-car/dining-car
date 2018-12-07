@@ -2,7 +2,7 @@
 
 if ENV["COVERAGE"]
   require "simplecov"
-  SimpleCov.start 'rails'
+  SimpleCov.start "rails"
 end
 
 ENV["RAILS_ENV"] ||= "test"
