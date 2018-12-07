@@ -9,33 +9,41 @@
  * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
+ */
+
+@import 'bulma';
+
+$regular-background: #ffffff;
+$login-background: #f2f6fa;
+
+/*
  *
  *= require_tree .
  *= require_self
  */
 
-@import 'bulma';
-
 .hero.is-login {
-  background: #F2F6FA;
+  background: $login-background;
 }
 
 /* mixin for multiline */
-@mixin multiLineEllipsis($lineHeight: 1.2em, $lineCount: 1, $bgColor: white){
+@mixin multiLineEllipsis($lineHeight: 1.2em, $lineCount: 1, $bgColor: $regular-background) {
   overflow: hidden;
   position: relative;
   line-height: $lineHeight;
   max-height: $lineHeight * $lineCount;
   text-align: justify;
-  margin-right: 0em;
+  margin-right: 0;
   padding-right: 1em;
-  &:before {
+
+  &::before {
     content: '…';
     position: absolute;
     right: 0;
     bottom: 0;
   }
-  &:after {
+
+  &::after {
     content: '';
     position: absolute;
     right: 0;
@@ -47,10 +55,11 @@
 }
 
 .ellipsed-title {
-  @include multiLineEllipsis($lineHeight: 1.5em, $lineCount: 2, $bgColor: white);
+  @include multiLineEllipsis($lineHeight: 1.5em, $lineCount: 2, $bgColor: $regular-background);
 }
+
 .ellipsed-info {
-  @include multiLineEllipsis($lineHeight: 1.5em, $lineCount: 3, $bgColor: white);
+  @include multiLineEllipsis($lineHeight: 1.5em, $lineCount: 3, $bgColor: $regular-background);
 }
 
 .subtitle.ellipsed-title {
@@ -58,6 +67,7 @@
   font-weight: 700;
   letter-spacing: -0.4px;
 }
+
 .content > .ellipsed-info {
   font-size: 14px;
   font-weight: 400;
