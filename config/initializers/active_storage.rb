@@ -110,7 +110,7 @@ Rails.application.config.to_prepare do
 
   if defined?(ActiveStorage::Service)
     ActiveStorage::Service.class_eval do
-      def upload(key, io, checksum: nil, acl: "private")
+      def upload(key, io, checksum: nil, acl: "private", **)
         raise NotImplementedError
       end
     end
@@ -118,7 +118,7 @@ Rails.application.config.to_prepare do
 
   if defined?(ActiveStorage::Service::DiskService)
     ActiveStorage::Service::DiskService.class_eval do
-      def upload(key, io, checksum: nil, acl: "private")
+      def upload(key, io, checksum: nil, acl: "private", **)
         instrument :upload, key: key, checksum: checksum do
           IO.copy_stream(io, make_path_for(key))
           ensure_integrity_of(key, checksum) if checksum
@@ -136,7 +136,7 @@ Rails.application.config.to_prepare do
         uri.to_s
       end
 
-      def upload(key, io, checksum: nil, content_type: "binary/octet-stream", acl: "private")
+      def upload(key, io, checksum: nil, content_type: "binary/octet-stream", acl: "private", **)
         instrument :upload, key: key, checksum: checksum, acl: acl do
           begin
             object_for(key).put(upload_options.merge(body: io,
