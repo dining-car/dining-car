@@ -39,6 +39,15 @@ class RecipesControllerTest < ActionDispatch::IntegrationTest
     assert_equal ["source1", "source 2"], created_recipe.source
   end
 
+  test "should create recipe with image" do
+    file = fixture_file_upload("files/burrito.jpg", "image/jpg")
+    assert_difference("ActiveStorage::Attachment.count") do
+      assert_difference("Recipe.count") do
+        post account_recipes_url(@account), params: { recipe: { info: @recipe.info, public: @recipe.public, title: @recipe.title, account_id: @recipe.account_id, photo: file } }
+      end
+    end
+  end
+
   test "should show recipe" do
     get account_recipe_url(@recipe.account, @recipe)
     assert_response :success
