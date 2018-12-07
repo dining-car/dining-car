@@ -4,14 +4,12 @@ class CuisinesController < ApplicationController
   before_action :set_cuisine, only: [:show, :edit, :update, :destroy]
 
   # GET /cuisines
-  # GET /cuisines.json
   def index
     authorize :cuisine, :index?
     @cuisines = Cuisine.all
   end
 
   # GET /cuisines/1
-  # GET /cuisines/1.json
   def show
     authorize @cuisine, :show?
   end
@@ -28,46 +26,32 @@ class CuisinesController < ApplicationController
   end
 
   # POST /cuisines
-  # POST /cuisines.json
   def create
     @cuisine = Cuisine.new(cuisine_params)
     authorize @cuisine, :create?
 
-    respond_to do |format|
-      if @cuisine.save
-        format.html { redirect_to @cuisine, notice: "Cuisine was successfully created." }
-        format.json { render :show, status: :created, location: @cuisine }
-      else
-        format.html { render :new }
-        format.json { render json: @cuisine.errors, status: :unprocessable_entity }
-      end
+    if @cuisine.save
+      redirect_to @cuisine, notice: "Cuisine was successfully created."
+    else
+      render :new
     end
   end
 
   # PATCH/PUT /cuisines/1
-  # PATCH/PUT /cuisines/1.json
   def update
     authorize @cuisine, :update?
-    respond_to do |format|
-      if @cuisine.update(cuisine_params)
-        format.html { redirect_to @cuisine, notice: "Cuisine was successfully updated." }
-        format.json { render :show, status: :ok, location: @cuisine }
-      else
-        format.html { render :edit }
-        format.json { render json: @cuisine.errors, status: :unprocessable_entity }
-      end
+    if @cuisine.update(cuisine_params)
+      redirect_to @cuisine, notice: "Cuisine was successfully updated."
+    else
+      render :edit
     end
   end
 
   # DELETE /cuisines/1
-  # DELETE /cuisines/1.json
   def destroy
     authorize @cuisine, :destroy?
     @cuisine.destroy
-    respond_to do |format|
-      format.html { redirect_to cuisines_url, notice: "Cuisine was successfully destroyed." }
-      format.json { head :no_content }
-    end
+    redirect_to cuisines_url, notice: "Cuisine was successfully destroyed."
   end
 
   private
