@@ -4,14 +4,12 @@ class UnitsController < ApplicationController
   before_action :set_unit, only: [:show, :edit, :update, :destroy]
 
   # GET /units
-  # GET /units.json
   def index
     authorize :unit, :index?
     @units = Unit.all
   end
 
   # GET /units/1
-  # GET /units/1.json
   def show
     authorize @unit, :show?
   end
@@ -28,46 +26,32 @@ class UnitsController < ApplicationController
   end
 
   # POST /units
-  # POST /units.json
   def create
     @unit = Unit.new(unit_params)
     authorize @unit, :create?
 
-    respond_to do |format|
-      if @unit.save
-        format.html { redirect_to @unit, notice: "Unit was successfully created." }
-        format.json { render :show, status: :created, location: @unit }
-      else
-        format.html { render :new }
-        format.json { render json: @unit.errors, status: :unprocessable_entity }
-      end
+    if @unit.save
+      redirect_to @unit, notice: "Unit was successfully created."
+    else
+      render :new
     end
   end
 
   # PATCH/PUT /units/1
-  # PATCH/PUT /units/1.json
   def update
     authorize @unit, :update?
-    respond_to do |format|
-      if @unit.update(unit_params)
-        format.html { redirect_to @unit, notice: "Unit was successfully updated." }
-        format.json { render :show, status: :ok, location: @unit }
-      else
-        format.html { render :edit }
-        format.json { render json: @unit.errors, status: :unprocessable_entity }
-      end
+    if @unit.update(unit_params)
+      redirect_to @unit, notice: "Unit was successfully updated."
+    else
+      render :edit
     end
   end
 
   # DELETE /units/1
-  # DELETE /units/1.json
   def destroy
     authorize @unit, :destroy?
     @unit.destroy
-    respond_to do |format|
-      format.html { redirect_to units_url, notice: "Unit was successfully destroyed." }
-      format.json { head :no_content }
-    end
+    redirect_to units_url, notice: "Unit was successfully destroyed."
   end
 
   private
