@@ -13,6 +13,14 @@
       <div class="card-content">
         <div class="content">
           <div class="columns is-multiline">
+            <% unless @recipe.info.blank? %>
+            <div class="column is-full">
+              <%= @recipe.info %>
+              </div>
+              <div class="column is-full">
+                <hr class="navbar-divider">
+              </div>
+            <% end %>
             <div class="column is-8">
               <% @recipe.ingredient_groups.each do |ingredient_group| %>
               <% unless ingredient_group.title.blank? %> <p class="subtitle"><%= ingredient_group.title %></p> <% end %>
