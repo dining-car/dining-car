@@ -70,8 +70,8 @@
                   </div>
                 </div>
                 <div class="content">
-                  <p class="ellipsed-info"><%= recipe.info %><br />
-                  <i class="fa fa-clock-o" aria-hidden="true" title="<%= t(".total_time") %>"></i> <%= recipe_presenter.total_time %> <%= t('units.minutes') %></p>
+                  <p class="ellipsed-info"><%= recipe.info %></p>
+                  <p><i class="fa fa-clock-o" aria-hidden="true" title="<%= t(".total_time") %>"></i> <%= recipe_presenter.total_time %> <%= t('units.minutes') %></p>
                   <p class="is-pulled-right"><small><%= l(recipe.created_at.to_date) %></small></p>
                 </div>
               </div>
