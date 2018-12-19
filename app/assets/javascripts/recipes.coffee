@@ -27,4 +27,10 @@ document.addEventListener 'turbolinks:load', ->
     read_url this
     change_file_name this
     return
+
+  $('#toggle-filters').click ->
+
+    $('#filters-box').toggleClass("is-hidden-touch")
+    return
+
   return
