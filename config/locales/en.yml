@@ -73,6 +73,7 @@ en:
       last_modification: Last modification
     index:
       total_time: Preparation and cooking time
+      toggle_filters_box: Toggle filters
   time:
     formats:
       default: "%d/%m/%Y %H:%M"

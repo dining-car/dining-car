@@ -1,7 +1,29 @@
 <div class="container">
   <div class="section">
-    <div class="columns">
-      <div class="column is-one-quarter">
+    <div class="columns is-multiline">
+      <div class="column is-12">
+        <div class="panel">
+          <%= form_tag(recipes_path, method: 'get', local: true, class: 'control') do |form| %>
+          <% @safe_params.except(:search).each do |k, v| %>
+          <%= hidden_field_tag k, v %>
+          <% end %>
+          <div class="field has-addons">
+            <p class="control is-expanded">
+            <%= text_field_tag :search, params[:search], placeholder: 'Enter a title', class: 'input is-fullwidth' %>
+            </p>
+            <p class="control">
+            <%= submit_tag 'Search', class: 'button is-primary' %>
+            </p>
+            <p class="control is-hidden-desktop">
+            <a class="button is-outlined" id="toggle-filters" aria-label="<%= t(".toggle_filters_box") %>">
+              <span class="icon is-small"><i class="fa fa-filter"></i></span>
+            </a>
+          </p>
+          </div>
+          <% end %>
+        </div>
+      </div>
+      <div class="column is-3-desktop is-12-touch is-hidden-touch" id="filters-box">
         <nav class="panel">
           <p class="panel-heading">
           Filters
@@ -31,22 +53,7 @@
           </div>
         </nav>
       </div>
-      <div class="column is-three-quarters">
-        <div class="panel">
-          <%= form_tag(recipes_path, method: 'get', local: true, class: 'control') do |form| %>
-          <% @safe_params.except(:search).each do |k, v| %>
-          <%= hidden_field_tag k, v %>
-          <% end %>
-          <div class="field has-addons">
-            <p class="control is-expanded">
-            <%= text_field_tag :search, params[:search], placeholder: 'Enter a title', class: 'input is-fullwidth' %>
-            </p>
-            <p class="control">
-            <%= submit_tag 'Search', class: 'button is-primary' %>
-            </p>
-          </div>
-          <% end %>
-        </div>
+      <div class="column is-12-touch is-9-desktop">
         <div class="columns is-multiline">
           <% @recipes.each do |recipe| %>
           <% present(recipe) do |recipe_presenter| %>
