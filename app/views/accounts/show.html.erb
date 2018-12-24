@@ -41,7 +41,7 @@
                     <p class="subtitle is-5 no-padding ellipsed-title"><%= link_to recipe.title, short_account_recipe_path(recipe.account, recipe) %></p>
                   </div>
                 </div>
-                <div class="content">
+                <div class="content recipe-description">
                   <p class="ellipsed-info"><%= recipe.info %></p>
                   <p class="is-pulled-right"><small><%= l(recipe.created_at.to_date) %></small></p>
                 </div>

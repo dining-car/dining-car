@@ -69,7 +69,7 @@
                     <p class="subtitle is-5 no-padding ellipsed-title"><%= link_to recipe.title, short_account_recipe_path(recipe.account, recipe), title: recipe.title %></p>
                   </div>
                 </div>
-                <div class="content">
+                <div class="content recipe-description">
                   <p class="ellipsed-info"><%= recipe.info %></p>
                   <p><i class="fa fa-clock-o" aria-hidden="true" title="<%= t(".total_time") %>"></i> <%= recipe_presenter.total_time %> <%= t('units.minutes') %></p>
                   <p class="is-pulled-right"><small><%= l(recipe.created_at.to_date) %></small></p>
