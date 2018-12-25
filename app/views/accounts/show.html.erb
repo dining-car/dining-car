@@ -25,28 +25,7 @@
           </div>
           <% @recipes.each do |recipe| %>
           <div class="column is-one-quarter">
-            <div class="card medium round">
-              <div class="card-image ">
-                <figure class="image">
-                  <% if recipe.photo.attached? %>
-                  <%= image_tag recipe.photo, alt: 'image' %>
-                  <% else %>
-                  <%= image_tag "/background.png", alt: 'image' %>
-                  <% end %>
-                </figure>
-              </div>
-              <div class="card-content">
-                <div class="media">
-                  <div class="media-content">
-                    <p class="subtitle is-5 no-padding ellipsed-title"><%= link_to recipe.title, short_account_recipe_path(recipe.account, recipe) %></p>
-                  </div>
-                </div>
-                <div class="content recipe-description">
-                  <p class="ellipsed-info"><%= recipe.info %></p>
-                  <p class="is-pulled-right"><small><%= l(recipe.created_at.to_date) %></small></p>
-                </div>
-              </div>
-            </div>
+            <%= render partial: "shared/recipe_card", locals: {recipe: recipe}  %>
           </div>
           <% end %>
         </div>

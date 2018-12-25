@@ -1,0 +1,28 @@
+<% present(recipe) do |recipe_presenter| %>
+
+<div class="card medium round">
+  <div class="card-image ">
+    <figure class="image">
+      <%= link_to short_account_recipe_path(recipe.account, recipe) do %>
+      <% if recipe.photo.attached? %>
+      <%= image_tag recipe.main_picture_variant, alt: 'image' %>
+      <% else %>
+      <%= image_tag "/background.png", alt: 'image' %>
+      <% end %>
+      <% end %>
+    </figure>
+  </div>
+  <div class="card-content">
+    <div class="media">
+      <div class="media-content">
+        <p class="subtitle is-5 no-padding ellipsed-title"><%= link_to recipe.title, short_account_recipe_path(recipe.account, recipe), title: recipe.title %></p>
+      </div>
+    </div>
+    <div class="content recipe-description">
+      <p class="ellipsed-info"><%= recipe.info %></p>
+      <p><i class="fa fa-clock-o" aria-hidden="true" title="<%= t(".total_time") %>"></i> <%= recipe_presenter.total_time %> <%= t('units.minutes') %></p>
+      <p class="is-pulled-right"><small><%= l(recipe.created_at.to_date) %></small></p>
+    </div>
+  </div>
+</div>
+<% end %>

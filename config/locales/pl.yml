@@ -71,7 +71,8 @@ pl:
       created_by: Utworzony przez
       edit_recipe: Edytuj przepis
       last_modification: Ostatnia zmiana
-    index:
+  shared:
+    recipe_card:
       total_time: Czas przygotowania i gotowania
   time:
     formats:
