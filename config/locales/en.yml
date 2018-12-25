@@ -71,7 +71,8 @@ en:
       created_by: Created by
       edit_recipe: Edit recipe
       last_modification: Last modification
-    index:
+  shared:
+    recipe_card:
       total_time: Preparation and cooking time
       toggle_filters_box: Toggle filters
   time:
