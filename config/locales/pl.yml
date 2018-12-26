@@ -7,12 +7,34 @@ pl:
         title: Nazwa
     models:
       recipe:
-        one: Przepis
         few: Przepisy
         many: Przepisów
+        one: Przepis
         other: Przepisów
   browse_recipes: Przeglądaj przepisy
+  courses:
+    edit:
+      edit_course: Edit course
+    index:
+      are_you_sure: Are you sure?
+      destroy: Destroy
+      edit: Edit
+      new: New
+      show: Show
+    new:
+      new_course: New course
   create_recipe: Utwórz przepis
+  cuisines:
+    edit:
+      edit_cuisine: Edit cuisine
+    index:
+      are_you_sure: Are you sure?
+      destroy: Destroy
+      edit: Edit
+      new: New
+      show: Show
+    new:
+      new_cuisine: New cuisine
   date:
     formats:
       default: "%d/%m/%Y"
@@ -46,6 +68,9 @@ pl:
   errors:
     messages:
       not_saved: Nie zapisano
+  photo:
+    size:
+      too_big: Photo is too big, maximum of 10 megabytes allowed.
   quantity_is_rational: Wymierna ilość
   recipes:
     edit:
@@ -53,16 +78,16 @@ pl:
     form:
       add_ingredient_group: Dodaj grupę składników
       add_instruction_group: Dodaj grupę instrukcji
+      choose_a_file: Choose a file...
+    index:
+      toggle_filters_box: Toggle filters
     ingredient_fields:
       delete_ingredient: Usuń składnik
     ingredient_group_fields:
       add_ingredient: Dodaj składnik
       delete_ingredient_group: Usuń grupę składników
       group_title: Tytuł grupy
-    instruction_fields:
-      delete_instruction: Usuń instrukcję
     instruction_group_fields:
-      add_instruction: Dodaj instrukcję
       delete_instruction_group: Usuń grupę instrukcji
       group_title: Tytuł grupy
     new:
@@ -71,6 +96,7 @@ pl:
       created_by: Utworzony przez
       edit_recipe: Edytuj przepis
       last_modification: Ostatnia zmiana
+      recipe_sources: Recipe sources
   shared:
     recipe_card:
       total_time: Czas przygotowania i gotowania
@@ -78,7 +104,17 @@ pl:
     formats:
       default: "%d/%m/%Y %H:%M"
   units:
+    edit:
+      edit_unit: Edit unit
+    index:
+      are_you_sure: Are you sure?
+      destroy: Destroy
+      edit: Edit
+      new: New
+      show: Show
     minutes: Minuty
+    new:
+      new_unit: New unit
     portions: Porcje
   views:
     pagination:
@@ -86,3 +122,4 @@ pl:
       last: Ostatnia
       next: Następna
       previous: Poprzednia
+      truncate: Truncate

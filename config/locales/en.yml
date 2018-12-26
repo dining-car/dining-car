@@ -10,7 +10,29 @@ en:
         one: Recipe
         other: Recipes
   browse_recipes: Browse recipes
+  courses:
+    edit:
+      edit_course: Edit course
+    index:
+      are_you_sure: Are you sure?
+      destroy: Destroy
+      edit: Edit
+      new: New
+      show: Show
+    new:
+      new_course: New course
   create_recipe: Create recipe
+  cuisines:
+    edit:
+      edit_cuisine: Edit cuisine
+    index:
+      are_you_sure: Are you sure?
+      destroy: Destroy
+      edit: Edit
+      new: New
+      show: Show
+    new:
+      new_cuisine: New cuisine
   date:
     formats:
       default: "%d/%m/%Y"
@@ -31,11 +53,9 @@ en:
         send_me_reset_password_instructions: Send me reset password instructions
     registrations:
       edit:
-        leave_blank_if_you_don_t_want_to_change_it: Leave blank if you don t want
-          to change it
+        leave_blank_if_you_don_t_want_to_change_it: Leave blank if you don t want to change it
         update: Update
-        we_need_your_current_password_to_confirm_your_changes: We need your current
-          password to confirm your changes
+        we_need_your_current_password_to_confirm_your_changes: We need your current password to confirm your changes
       new:
         sign_up: Sign up
     sessions:
@@ -46,6 +66,9 @@ en:
   errors:
     messages:
       not_saved: Not saved
+  photo:
+    size:
+      too_big: Photo is too big, maximum of 10 megabytes allowed.
   quantity_is_rational: Quantity is rational
   recipes:
     edit:
@@ -53,16 +76,16 @@ en:
     form:
       add_ingredient_group: Add ingredient group
       add_instruction_group: Add instruction group
+      choose_a_file: Choose a file...
+    index:
+      toggle_filters_box: Toggle filters
     ingredient_fields:
       delete_ingredient: Delete ingredient
     ingredient_group_fields:
       add_ingredient: Add ingredient
       delete_ingredient_group: Delete ingredient group
       group_title: Group title
-    instruction_fields:
-      delete_instruction: Delete instruction
     instruction_group_fields:
-      add_instruction: Add instruction
       delete_instruction_group: Delete instruction group
       group_title: Group title
     new:
@@ -71,15 +94,25 @@ en:
       created_by: Created by
       edit_recipe: Edit recipe
       last_modification: Last modification
+      recipe_sources: Recipe sources
   shared:
     recipe_card:
       total_time: Preparation and cooking time
-      toggle_filters_box: Toggle filters
   time:
     formats:
       default: "%d/%m/%Y %H:%M"
   units:
+    edit:
+      edit_unit: Edit unit
+    index:
+      are_you_sure: Are you sure?
+      destroy: Destroy
+      edit: Edit
+      new: New
+      show: Show
     minutes: Minutes
+    new:
+      new_unit: New unit
     portions: Portions
   views:
     pagination:
