@@ -6,13 +6,45 @@ pl:
         info: Informacje
         title: Nazwa
     models:
+      course:
+        few: Courses
+        many: Courses
+        one: Course
+        other: Courses
+      cuisine:
+        few: Cuisines
+        many: Cuisines
+        one: Cuisine
+        other: Cuisines
       recipe:
-        one: Przepis
         few: Przepisy
         many: Przepisów
+        one: Przepis
         other: Przepisów
   browse_recipes: Przeglądaj przepisy
+  courses:
+    edit:
+      edit_course: Edit course
+    index:
+      are_you_sure: Are you sure?
+      destroy: Destroy
+      edit: Edit
+      new: New
+      show: Show
+    new:
+      new_course: New course
   create_recipe: Utwórz przepis
+  cuisines:
+    edit:
+      edit_cuisine: Edit cuisine
+    index:
+      are_you_sure: Are you sure?
+      destroy: Destroy
+      edit: Edit
+      new: New
+      show: Show
+    new:
+      new_cuisine: New cuisine
   date:
     formats:
       default: "%d/%m/%Y"
@@ -46,6 +78,14 @@ pl:
   errors:
     messages:
       not_saved: Nie zapisano
+  filters: Filters
+  layouts:
+    footer:
+      contribute_or_issues_html: You can contribute or create issues at the project page <a href="https://github.com/dining-car/dining-car">dining-car/dining-car</a>.
+      source_code_license_html: The source code is licensed <a href="https://opensource.org/licenses/AGPL-3.0">AGPL-3.0</a>.
+  photo:
+    size:
+      too_big: Photo is too big, maximum of 10 megabytes allowed.
   quantity_is_rational: Wymierna ilość
   recipes:
     edit:
@@ -53,24 +93,34 @@ pl:
     form:
       add_ingredient_group: Dodaj grupę składników
       add_instruction_group: Dodaj grupę instrukcji
+      choose_a_file: Choose a file...
+      error_prevented_saving:
+        few: "%{count} errors prevented this recipe from being saved:"
+        many: "%{count} errors prevented this recipe from being saved:"
+        one: 'An error prevented this recipe from being saved:'
+        other: "%{count} errors prevented this recipe from being saved:"
+    index:
+      ordering: Ordering
+      search: Search
+      search_placeholder: Part of the name of a recipe, i.e. "Cake"
+      toggle_filters_box: Toggle filters
     ingredient_fields:
       delete_ingredient: Usuń składnik
     ingredient_group_fields:
       add_ingredient: Dodaj składnik
       delete_ingredient_group: Usuń grupę składników
       group_title: Tytuł grupy
-    instruction_fields:
-      delete_instruction: Usuń instrukcję
     instruction_group_fields:
-      add_instruction: Dodaj instrukcję
       delete_instruction_group: Usuń grupę instrukcji
       group_title: Tytuł grupy
     new:
       create_recipe: Utwórz przepis
     show:
+      are_you_sure: Are you sure?
       created_by: Utworzony przez
       edit_recipe: Edytuj przepis
       last_modification: Ostatnia zmiana
+      recipe_sources: Recipe sources
   shared:
     recipe_card:
       total_time: Czas przygotowania i gotowania
@@ -78,7 +128,17 @@ pl:
     formats:
       default: "%d/%m/%Y %H:%M"
   units:
+    edit:
+      edit_unit: Edit unit
+    index:
+      are_you_sure: Are you sure?
+      destroy: Destroy
+      edit: Edit
+      new: New
+      show: Show
     minutes: Minuty
+    new:
+      new_unit: New unit
     portions: Porcje
   views:
     pagination:
@@ -86,3 +146,4 @@ pl:
       last: Ostatnia
       next: Następna
       previous: Poprzednia
+      truncate: Truncate

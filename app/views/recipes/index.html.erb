@@ -9,10 +9,10 @@
           <% end %>
           <div class="field has-addons">
             <p class="control is-expanded">
-            <%= text_field_tag :search, params[:search], placeholder: 'Enter a title', class: 'input is-fullwidth' %>
+            <%= text_field_tag :search, params[:search], placeholder: t(".search_placeholder"), class: 'input is-fullwidth' %>
             </p>
             <p class="control">
-            <%= submit_tag 'Search', class: 'button is-primary' %>
+            <%= submit_tag t(".search"), class: 'button is-primary' %>
             </p>
             <p class="control is-hidden-desktop">
             <a class="button is-outlined" id="toggle-filters" aria-label="<%= t(".toggle_filters_box") %>">
@@ -26,25 +26,25 @@
       <div class="column is-3-desktop is-12-touch is-hidden-touch" id="filters-box">
         <nav class="panel">
           <p class="panel-heading">
-          Filters
+          <%= t("filters") %>
           </p>
 
           <div class="panel-block">
             <aside class="menu">
               <p class="menu-label">
-              Courses
+              <%= Course.model_name.human(count: @courses.length) %>
               </p>
               <ul class="menu-list">
                 <%= courses_menu %>
               </ul>
               <p class="menu-label">
-              Cuisines
+              <%= Cuisine.model_name.human(count: @cuisines.length) %>
               </p>
               <ul class="menu-list">
                 <%= cuisines_menu %>
               </ul>
               <p class="menu-label">
-              Ordering
+              <%= t(".ordering") %>
               </p>
               <ul class="menu-list">
                 <%= ordering_menu %>
