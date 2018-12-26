@@ -1,6 +1,6 @@
 <% if recipe.errors.any? %>
 <div class="notification is-danger">
-  <h2><%= pluralize(recipe.errors.count, "error") %> prohibited this recipe from being saved:</h2>
+  <h2><%= t(".error_prevented_saving", count: recipe.errors.count) %></h2>
 
   <ul>
     <% recipe.errors.full_messages.each do |message| %>

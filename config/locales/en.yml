@@ -6,6 +6,12 @@ en:
         info: Information
         title: Name
     models:
+      course:
+        one: Course
+        other: Courses
+      cuisine:
+        one: Cuisine
+        other: Cuisines
       recipe:
         one: Recipe
         other: Recipes
@@ -66,6 +72,11 @@ en:
   errors:
     messages:
       not_saved: Not saved
+  filters: Filters
+  layouts:
+    footer:
+      contribute_or_issues_html: You can contribute or create issues at the project page <a href="https://github.com/dining-car/dining-car">dining-car/dining-car</a>.
+      source_code_license_html: The source code is licensed <a href="https://opensource.org/licenses/AGPL-3.0">AGPL-3.0</a>.
   photo:
     size:
       too_big: Photo is too big, maximum of 10 megabytes allowed.
@@ -77,7 +88,13 @@ en:
       add_ingredient_group: Add ingredient group
       add_instruction_group: Add instruction group
       choose_a_file: Choose a file...
+      error_prevented_saving:
+        one: 'An error prevented this recipe from being saved:'
+        other: "%{count} errors prevented this recipe from being saved:"
     index:
+      ordering: Ordering
+      search: Search
+      search_placeholder: Part of the name of a recipe, i.e. "Cake"
       toggle_filters_box: Toggle filters
     ingredient_fields:
       delete_ingredient: Delete ingredient
@@ -91,6 +108,7 @@ en:
     new:
       create_recipe: Create recipe
     show:
+      are_you_sure: Are you sure?
       created_by: Created by
       edit_recipe: Edit recipe
       last_modification: Last modification
