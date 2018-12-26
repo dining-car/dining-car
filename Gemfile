@@ -38,14 +38,13 @@ gem "mini_magick" # used for image operations with activestorage
 
 gem "aws-sdk-s3", "~> 1.0", require: false # used in case media is stored in S3, minio or similar
 
-# detects missing locale files, normalize translations, etc
-gem "i18n-tasks"
-
 group :development, :test do
   gem "pry-byebug"
   gem "byebug", platforms: [:mri, :mingw, :x64_mingw]
   gem "rubocop", require: false
   gem "faker"
+  # detects missing locale files, normalize translations, etc
+  gem "i18n-tasks"
 end
 
 group :development do
