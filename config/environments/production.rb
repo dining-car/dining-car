@@ -100,7 +100,7 @@ Rails.application.configure do
     address: ENV["SMTP_SERVER"],
     user_name: ENV["SMTP_LOGIN"].presence,
     password: ENV["SMTP_PASSWORD"].presence,
-    domain: ENV["SMTP_DOMAIN"] || ENV["LOCAL_DOMAIN"],
+    domain: ENV["SMTP_DOMAIN"] || ENV["DOMAIN"],
     authentication: ENV["SMTP_AUTH_METHOD"] == "none" ? nil : ENV["SMTP_AUTH_METHOD"] || :plain,
     ca_file: ENV["SMTP_CA_FILE"].presence,
     openssl_verify_mode: ENV["SMTP_OPENSSL_VERIFY_MODE"],
