@@ -11,16 +11,7 @@ class RecipesController < ApplicationController
   # GET /recipes
   def index
     authorize :recipe, :index?
-    @recipes = Recipe.all
-    @recipes = if params[:sort_by] == "title"
-      @recipes.by_title
-    else
-      @recipes.by_created_at
-    end
-    @recipes = @recipes.with_public if current_user.blank?
-    @recipes = @recipes.search_for(params[:search]) if params[:search]
-    @recipes = @recipes.with_course(@course) if @course
-    @recipes = @recipes.with_cuisine(@cuisine) if @cuisine
+    @recipes = RecipeIndexQuery.new.query(params[:sort_by], current_user, params[:search], @course, @cuisine)
     @recipes = @recipes.page params[:page]
     @courses = Course.all.with_recipes_count
     @cuisines = Cuisine.all.with_recipes_count
