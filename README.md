@@ -1,3 +1,5 @@
+![logo](logo/original-horizontal.png)
+
 Dining Car
 ==========
 
