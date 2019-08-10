@@ -42,6 +42,7 @@ group :development, :test do
   gem "pry-byebug"
   gem "byebug", platforms: [:mri, :mingw, :x64_mingw]
   gem "rubocop", require: false
+  gem "rubocop-performance", require: false
   gem "faker"
   # detects missing locale files, normalize translations, etc
   gem "i18n-tasks"
