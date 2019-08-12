@@ -13,7 +13,7 @@ gem "uglifier"
 
 gem "coffee-rails", "~> 4.2"
 gem "turbolinks", "~> 5"
-gem "jbuilder", "~> 2.5"
+gem "jbuilder", "~> 2.9"
 
 gem "dotenv-rails", "~> 2.7.5" # loads .env.production automatically
 
