@@ -9,7 +9,7 @@ cache:
     directories:
         - node_modules
 rvm:
-  - 2.5.3
+  - 2.6.3
 install:
   - nvm install
   - bundle install --without development production --retry=3 --jobs=16
