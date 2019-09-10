@@ -16,7 +16,7 @@ gem "jbuilder", "~> 2.5"
 gem "dotenv-rails", "~> 2.7.5" # loads .env.production automatically
 
 gem "devise", "~> 4" # authentication
-gem "devise-i18n", "~> 1.6"
+gem "devise-i18n", "~> 1.8"
 
 gem "bootsnap", ">= 1.1.0", require: false # speed-up rails startup
 
