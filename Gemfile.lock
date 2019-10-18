@@ -51,8 +51,8 @@ GEM
     arel (9.0.0)
     ast (2.4.0)
     aws-eventstream (1.0.3)
-    aws-partitions (1.200.0)
-    aws-sdk-core (3.62.0)
+    aws-partitions (1.225.0)
+    aws-sdk-core (3.69.0)
       aws-eventstream (~> 1.0, >= 1.0.2)
       aws-partitions (~> 1.0)
       aws-sigv4 (~> 1.1)
@@ -60,7 +60,7 @@ GEM
     aws-sdk-kms (1.24.0)
       aws-sdk-core (~> 3, >= 3.61.1)
       aws-sigv4 (~> 1.1)
-    aws-sdk-s3 (1.46.0)
+    aws-sdk-s3 (1.50.0)
       aws-sdk-core (~> 3, >= 3.61.1)
       aws-sdk-kms (~> 1)
       aws-sigv4 (~> 1.1)
@@ -308,7 +308,7 @@ PLATFORMS
 
 DEPENDENCIES
   active_storage_validations
-  aws-sdk-s3 (~> 1.46)
+  aws-sdk-s3 (~> 1.50)
   babosa
   bootsnap (>= 1.1.0)
   bulma-rails
