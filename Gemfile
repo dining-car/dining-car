@@ -28,7 +28,7 @@ gem "pundit" # authorization
 
 gem "cocoon" # interactive nested resources forms
 
-gem "friendly_id", "~> 5.2.0" # generate slugs for recipes
+gem "friendly_id", "~> 5.3.0" # generate slugs for recipes
 gem "babosa" # used with friendly_id to generate unicode slugs
 
 gem "active_storage_validations" # add validations to activestorage
