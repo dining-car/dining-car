@@ -7,7 +7,7 @@ class CoursesControllerTest < ActionDispatch::IntegrationTest
 
   setup do
     sign_in users(:admin)
-    @course = courses(:one)
+    @course = courses(:unused)
   end
 
   test "should get index" do

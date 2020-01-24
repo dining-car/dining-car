@@ -7,7 +7,7 @@ class CuisinesControllerTest < ActionDispatch::IntegrationTest
 
   setup do
     sign_in users(:admin)
-    @cuisine = cuisines(:one)
+    @cuisine = cuisines(:unused)
   end
 
   test "should get index" do

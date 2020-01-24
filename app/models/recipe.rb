@@ -31,6 +31,7 @@ class Recipe < ApplicationRecord
   scope :by_title, -> { order(title: :asc) }
   scope :by_created_at, -> { order(created_at: :desc) }
   scope :with_public, -> { where(public: true) }
+  scope :with_private_for_account, ->(account_id) { where("public = true OR (public = false AND account_id = ?)", account_id) }
   scope :with_course, ->(course_id) { where(course_id: course_id) }
   scope :with_cuisine, ->(cuisine_id) { where(cuisine_id: cuisine_id) }
   scope :search_for, ->(search) { where("title ilike ?", "%#{search}%") }
