@@ -166,7 +166,7 @@ GEM
     kaminari-core (1.1.1)
     launchy (2.4.3)
       addressable (~> 2.3)
-    lefthook (0.7.0)
+    lefthook (0.7.1)
     letter_opener (1.7.0)
       launchy (~> 2.2)
     listen (3.2.1)
