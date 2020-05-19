@@ -39,7 +39,7 @@ gem "aws-sdk-s3", "~> 1.64", require: false # used in case media is stored in S3
 group :development, :test do
   gem "pry-byebug"
   gem "byebug", platforms: [:mri, :mingw, :x64_mingw]
-  gem "rubocop", "~> 0.79.0", require: false
+  gem "rubocop", "~> 0.83.0", require: false
   gem "rubocop-performance", require: false
   gem "lefthook", require: false
   gem "pronto", github: "prontolabs/pronto", require: false # Until release of version with thor 1.0
