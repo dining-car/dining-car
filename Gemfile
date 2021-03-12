@@ -13,7 +13,7 @@ gem "coffee-rails", "~> 4.2"
 gem "turbolinks", "~> 5"
 gem "jbuilder", "~> 2.10"
 
-gem "dotenv-rails", "~> 2.7.5" # loads .env.production automatically
+gem "dotenv-rails", "~> 2.7.6" # loads .env.production automatically
 
 gem "devise", "~> 4" # authentication
 gem "devise-i18n", "~> 1.9"
