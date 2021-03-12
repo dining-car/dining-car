@@ -9,7 +9,7 @@ gem "puma", "~> 4.3"
 gem "sass-rails", "~> 5.0"
 gem "uglifier"
 
-gem "coffee-rails", "~> 4.2"
+gem "coffee-rails", "~> 5.0"
 gem "turbolinks", "~> 5"
 gem "jbuilder", "~> 2.10"
 
