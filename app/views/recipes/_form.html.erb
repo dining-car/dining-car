@@ -14,15 +14,15 @@
 <div class="columns">
   <div class="column is-one-third">
     <div class="columns is-multiline">
-      <div class="column is-full">
+      <div class="column is-full" data-controller="image-preview">
         <% if recipe.photo.attached? %>
-        <%= image_tag recipe.photo, id: 'image-preview', alt: 'image' %>
+        <%= image_tag recipe.photo, "data-image-preview-target": "output", alt: 'image' %>
         <% else %>
-        <%= image_tag "/background.png", id: 'image-preview', alt: 'image' %>
+        <%= image_tag "/background.png", "data-image-preview-target": "output", alt: 'image' %>
         <% end %>
-        <div class="file has-name is-boxed is-fullwidth is-empty">
+        <div class="file has-name is-boxed is-fullwidth is-empty" data-image-preview-target="parentdiv">
           <label class="file-label">
-            <%= form.file_field :photo, id: 'image-upload', class: 'file-input' %>
+            <%= form.file_field :photo, class: 'file-input', "data-image-preview-target": "input", "data-action": "image-preview#read_url" %>
             <span class="file-cta">
               <span class="file-icon">
                 <i class="fa fa-upload"></i>
@@ -31,7 +31,7 @@
                 <%= t('.choose_a_file') %>
               </span>
             </span>
-            <span class="file-name">
+            <span class="file-name" data-image-preview-target="filename">
             </span>
           </label>
         </div>
