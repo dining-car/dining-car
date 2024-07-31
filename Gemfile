@@ -69,11 +69,10 @@ gem "mini_magick" # used for image operations with activestorage
 gem "aws-sdk-s3", "~> 1.73", require: false # used in case media is stored in S3, minio or similar
 
 group :development, :test do
-  # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
-  gem "debug", platforms: %i[mri mingw x64_mingw]
+  gem "debug"
 
   # .env loading
-  gem "dotenv-rails", require: "dotenv/rails-now"
+  gem "dotenv-rails", require: "dotenv/load"
 
   # Code formatting facilities
   gem "lefthook", require: false

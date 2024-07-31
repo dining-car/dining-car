@@ -1,8 +1,7 @@
 # frozen_string_literal: true
 
 class ApplicationController < ActionController::Base
-  include Pundit
-  include Authorization
+  include Pundit::Authorization
 
   protect_from_forgery
 
@@ -13,7 +12,11 @@ class ApplicationController < ActionController::Base
   protected
 
     def current_account
-      @current_account ||= current_user.try(:account)
+      @current_account ||= current_user&.account
+    end
+
+    def pundit_user
+      current_account
     end
 
   private
