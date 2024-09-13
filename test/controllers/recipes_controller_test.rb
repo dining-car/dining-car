@@ -40,7 +40,7 @@ class RecipesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should create recipe with image" do
-    file = fixture_file_upload("files/burrito.jpg", "image/jpg")
+    file = fixture_file_upload("burrito.jpg", "image/jpg")
     assert_difference("ActiveStorage::Attachment.count") do
       assert_difference("Recipe.count") do
         post account_recipes_url(@account), params: { recipe: { info: @recipe.info, public: @recipe.public, title: @recipe.title, account_id: @recipe.account_id, photo: file } }

@@ -14,7 +14,7 @@
  *= require_self
  */
 
-@import 'bulma';
+@import "https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css";
 
 $regular-background: #ffffff;
 $login-background: #f2f6fa;
@@ -70,3 +70,5 @@ $login-background: #f2f6fa;
   font-weight: 400;
   letter-spacing: -0.4px;
 }
+
+@import "recipes"
