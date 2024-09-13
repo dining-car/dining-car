@@ -68,6 +68,8 @@ gem "mini_magick" # used for image operations with activestorage
 
 gem "aws-sdk-s3", "~> 1.73", require: false # used in case media is stored in S3, minio or similar
 
+gem "image_processing", ">= 1.2" # Used for image analysis and transformation, seems to not be needed on newer rails
+
 group :development, :test do
   gem "debug"
 
