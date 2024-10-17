@@ -2,11 +2,11 @@
 
 class RecipesController < ApplicationController
   before_action :set_account, only: [:show]
-  before_action :set_recipe, only: [:show, :edit, :update, :destroy]
+  before_action :set_recipe, only: %i[show edit update destroy]
   before_action :set_course, only: [:index]
   before_action :set_cuisine, only: [:index]
   before_action :set_safe_params, only: [:index]
-  before_action :authenticate_user!, except: [:show, :index]
+  before_action :authenticate_user!, except: %i[show index]
 
   # GET /recipes
   def index
@@ -29,7 +29,7 @@ class RecipesController < ApplicationController
     6.times do
       ingredient_group.ingredients.build
     end
-    instruction_group = @recipe.instruction_groups.build
+    @recipe.instruction_groups.build
     authorize @recipe, :new?
   end
 
@@ -43,9 +43,10 @@ class RecipesController < ApplicationController
     @recipe = Recipe.new(recipe_params.merge(account: current_account, source: recipe_params["source"]&.split(",")))
 
     if @recipe.save
-      redirect_to short_account_recipe_url(@recipe.account, @recipe), notice: "Recipe was successfully created."
+      flash[:success] = "Recipe was successfully created."
+      redirect_to short_account_recipe_url(@recipe.account, @recipe)
     else
-      render :new
+      render :new, status: :unprocessable_entity
     end
   end
 
@@ -53,7 +54,8 @@ class RecipesController < ApplicationController
   def update
     authorize @recipe, :update?
     if @recipe.update(recipe_params.merge(source: recipe_params["source"]&.split(",")))
-      redirect_to short_account_recipe_url(@recipe.account, @recipe), notice: "Recipe was successfully updated."
+      flash[:success] = "Recipe was successfully updated."
+      redirect_to short_account_recipe_url(@recipe.account, @recipe)
     else
       render :edit
     end
@@ -63,20 +65,22 @@ class RecipesController < ApplicationController
   def destroy
     authorize @recipe, :destroy?
     @recipe.destroy
-    redirect_to recipes_url, notice: "Recipe was successfully destroyed."
+    flash[:success] = "Recipe was successfully destroyed."
+    redirect_to recipes_url, status: :see_other
   end
 
   private
+
     def set_account
       @account = Account.find_local!(params[:account_username])
     end
 
     def set_course
-      @course = Course.find_by_id(params[:course_id])
+      @course = Course.find_by_id(params[:course_id]) if params[:course_id].present?
     end
 
     def set_cuisine
-      @cuisine = Cuisine.find_by_id(params[:cuisine_id])
+      @cuisine = Cuisine.find_by_id(params[:cuisine_id]) if params[:cuisine_id].present?
     end
 
     def set_recipe
@@ -88,6 +92,6 @@ class RecipesController < ApplicationController
     end
 
     def recipe_params
-      params.require(:recipe).permit(:title, :info, :public, :search, :photo, :course_id, :cuisine_id, :preparation_time, :cooking_time, :servings, :source, ingredient_groups_attributes: [:id, :title, :_destroy, ingredients_attributes: %i[id title unit_id quantity _destroy]], instruction_groups_attributes: [:id, :title, :instructions, :_destroy])
+      params.require(:recipe).permit(:title, :info, :public, :search, :photo, :course_id, :cuisine_id, :preparation_time, :cooking_time, :servings, :source, ingredient_groups_attributes: [:id, :title, :_destroy, { ingredients_attributes: %i[id title unit_id quantity _destroy] }], instruction_groups_attributes: %i[id title instructions _destroy])
     end
 end

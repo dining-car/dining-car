@@ -3,7 +3,9 @@
 one:
   title: MyString
   recipe: one
+  instructions: "1. do thing"
 
 two:
   title: MyString
   recipe: two
+  instructions: "1. stop everything"

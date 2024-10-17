@@ -92,13 +92,16 @@
     <%= form.text_area :info, class: 'textarea' %>
   </div>
 
-  <div id="ingredient_groups">
+  <div>
     <%= form.fields_for :ingredient_groups do |ig_form| %>
     <% render 'ingredient_group_fields', f: ig_form %>
     <% end %>
-    <div class="ig-links">
+    <div id="ingredient_group_links" class="ig-links">
       <div class="buttons has-addons is-right">
-        <%= link_to_add_association form, :ingredient_groups, class: 'button is-info' do %>
+        <%= link_to ingredient_groups_path,
+          data: {turbo_method: :post, turbo_stream: true},
+          id: "add-ingredient-group",
+        class: "button is-info" do %>
         <span class="icon">
           <i class="fa fa-plus-circle"></i>
         </span>
@@ -112,9 +115,12 @@
     <%= form.fields_for :instruction_groups do |ig_form| %>
     <% render 'instruction_group_fields', f: ig_form %>
     <% end %>
-    <div class="ig-links">
+    <div id="instruction_group_links" class="ig-links">
       <div class="buttons has-addons is-right">
-        <%= link_to_add_association form, :instruction_groups, class: 'button is-info' do %>
+        <%= link_to instruction_groups_path,
+          data: {turbo_method: :post, turbo_stream: true},
+          id: "add-instruction-group",
+        class: "button is-info" do %>
         <span class="icon">
           <i class="fa fa-plus-circle"></i>
         </span>
@@ -127,7 +133,7 @@
   <div class="field">
     <%= form.label :public, class: 'label' do %>
     <%= form.check_box :public %>
-    <%= Recipe.human_attribute_name(:public) %>
+    <%= t("recipe.public") %>
     <% end %>
   </div>
 

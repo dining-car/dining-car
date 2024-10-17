@@ -1,0 +1,3 @@
+<%= turbo_stream.replace "ingredient_#{@ingredient_group_index}_#{@id}" do %>
+  <input value="true" autocomplete="off" type="hidden" name="recipe[ingredient_groups_attributes][<%=@ingredient_group_index%>][ingredients_attributes][<%=@id%>][_destroy]" id="recipe_ingredient_groups_attributes_<%=@ingredient_group_index%>_ingredients_attributes_<%=@id%>__destroy">
+<% end %>

@@ -79,6 +79,15 @@ pl:
     messages:
       not_saved: Nie zapisano
   filters: Filters
+  ingredient_groups:
+    create:
+      add_ingredient_group: Add ingredient group
+  ingredients:
+    create:
+      add_ingredient: Add ingredient
+  instruction_groups:
+    create:
+      add_instruction_group: Add instruction group
   layouts:
     footer:
       contribute_or_issues_html: You can contribute or create issues at the project page <a href="https://github.com/dining-car/dining-car">dining-car/dining-car</a>.
@@ -87,6 +96,8 @@ pl:
     size:
       too_big: Photo is too big, maximum of 10 megabytes allowed.
   quantity_is_rational: Wymierna ilość
+  recipe:
+    public: Public
   recipes:
     edit:
       edit_recipe: Edytuj przepis

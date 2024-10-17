@@ -1,35 +1,37 @@
-<div class="field is-horizontal ingredient-nested-fields">
-  <div class="field-label is-normal">
-    <%= f.label :quantity, class: 'label' %>
-  </div>
-
-  <div class="field-body">
-    <div class="field is-narrow">
-      <div class="control">
-        <%= f.text_field :quantity, value: rational_for_display(f.object.quantity), class: 'input' %>
-      </div>
+<div class="field is-horizontal ingredient-nested-fields" id="ingredient_<%= ig_idx %>_<%= f.index %>">
+    <div class="field-label is-normal">
+      <%= f.label :quantity, class: 'label' %>
     </div>
-    <div class="field is-narrow">
-      <div class="control">
-        <div class="select">
-          <%= f.select :unit_id, unit_options %>
+
+    <div class="field-body">
+      <div class="field is-narrow">
+        <div class="control">
+          <%= f.text_field :quantity, value: rational_for_display(f.object.quantity), class: 'input', placeholder: '3/4' %>
+        </div>
+      </div>
+      <div class="field is-narrow">
+        <div class="control">
+          <div class="select">
+            <%= f.select :unit_id, unit_options %>
+          </div>
+        </div>
+      </div>
+      <div class="field">
+        <div class="control is-expanded">
+          <%= f.text_field :title, class: 'input is-fullwidth', placeholder: 'flour' %>
+        </div>
+      </div>
+      <div class="field is-narrow">
+        <div class="control">
+          <%= link_to ingredient_path(f.index, ingredient_group_index: ig_idx),
+            data: {turbo_method: :delete, turbo_stream: true},
+          class: "button is-danger is-outlined" do %>
+          <span><%= t('.delete_ingredient') %></span>
+          <span class="icon is-small">
+            <i class="fa fa-times"></i>
+          </span>
+          <% end %>
         </div>
       </div>
     </div>
-    <div class="field">
-      <div class="control is-expanded">
-        <%= f.text_field :title, class: 'input is-fullwidth' %>
-      </div>
-    </div>
-    <div class="field is-narrow">
-      <div class="control">
-        <%= link_to_remove_association f, wrapper_class: 'ingredient-nested-fields', class: 'button is-danger is-outlined' do %>
-        <span><%= t('.delete_ingredient') %></span>
-        <span class="icon is-small">
-          <i class="fa fa-times"></i>
-        </span>
-        <% end %>
-      </div>
-    </div>
   </div>
-</div>
