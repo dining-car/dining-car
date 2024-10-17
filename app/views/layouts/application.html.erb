@@ -28,7 +28,7 @@
           <%= link_to t(:browse_recipes), :recipes, class: 'navbar-item' %>
           <% if current_account %>
           <%= link_to t(:create_recipe), new_account_recipe_path(current_account), class: 'navbar-item' %>
-          <%= link_to 'Logout', destroy_user_session_url, method: :delete, class: 'navbar-item' %>
+          <%= link_to 'Logout', destroy_user_session_url, data: { turbo_method: :delete }, class: 'navbar-item' %>
           <% else %>
           <%= link_to 'Login', new_user_session_path, class: 'navbar-item' %>
           <% end %>

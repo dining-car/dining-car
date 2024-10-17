@@ -18,7 +18,7 @@
         <td><%= ingredient_group.recipe %></td>
         <td><%= link_to 'Show', ingredient_group %></td>
         <td><%= link_to 'Edit', edit_ingredient_group_path(ingredient_group) %></td>
-        <td><%= link_to 'Destroy', ingredient_group, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Destroy', ingredient_group, data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

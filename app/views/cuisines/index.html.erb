@@ -18,7 +18,7 @@
             <td><%= cuisine.title %></td>
             <td><%= link_to t(".show"), cuisine %></td>
             <td><%= link_to t(".edit"), edit_cuisine_path(cuisine) %></td>
-            <td><%= link_to t(".destroy"), cuisine, method: :delete, data: { confirm: t(".are_you_sure") } %></td>
+            <td><%= link_to t(".destroy"), cuisine, data: { turbo_method: :delete, turbo_confirm: t(".are_you_sure") } %></td>
           </tr>
         <% end %>
       </tbody>
