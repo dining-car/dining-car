@@ -6,14 +6,24 @@ Rails.application.routes.draw do
   resources :cuisines
   resources :courses
   devise_for :users, path: "auth", controllers: {
-    registrations:      "auth/registrations",
+    registrations: "auth/registrations"
   }
 
-  get "/accounts/:username", to: redirect("/@%{username}"), constraints: lambda { |req| req.format.nil? || req.format.html? }
+  get "/accounts/:username", to: redirect("/@%<username>s"), constraints: ->(req) { req.format.nil? || req.format.html? }
 
   resources :accounts, only: :show, param: :username do
-    resources :recipes, except: [:index]
+    resources :recipes, except: [:index] do
+      resources :ingredient_groups, only: [], param: :index do
+        member do
+          delete "(:id)" => "ingredient_group#destroy", as: ""
+          post "/" => "ingredient_group#create"
+          patch "/" => "ingredient_group#create"
+        end
+      end
+    end
   end
+
+  resources :ingredients, only: %i[create destroy]
 
   get "/@:username", to: "accounts#show", as: :short_account
   get "/@:account_username/:id", to: "recipes#show", as: :short_account_recipe

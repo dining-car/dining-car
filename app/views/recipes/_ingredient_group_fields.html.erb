@@ -22,14 +22,21 @@
     </div>
   </div>
   <%= f.fields_for :ingredients do |i_form| %>
-  <% render 'ingredient_fields', f: i_form %>
+    <% render 'ingredient_fields', f: i_form , ig_idx: f.index%>
   <% end %>
-  <div class="buttons has-addons is-right">
-    <%= link_to_add_association f, :ingredients, class: 'button is-info' do %>
-    <span class="icon">
-      <i class="fa fa-plus-circle"></i>
-    </span>
-    <span><%= t('.add_ingredient')%></span>
+  <div id="<%= f.index%>_ingredients" class="buttons has-addons is-right">
+    <%= f.button nil,
+      type: :submit,
+      formaction: ingredients_path(ingredient_group_index: f.index),
+      formmethod: :post,
+      formnovalidate: true,
+      data: {turbo_stream: true},
+      id: "add-#{f.index}-ingredient",
+    class: "button is-info add_fields" do %>
+      <span class="icon">
+        <i class="fa fa-plus-circle"></i>
+      </span>
+      <span><%= t('.add_ingredient')%></span>
     <% end %>
   </div>
 </div>

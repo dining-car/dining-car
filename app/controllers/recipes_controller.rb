@@ -2,11 +2,11 @@
 
 class RecipesController < ApplicationController
   before_action :set_account, only: [:show]
-  before_action :set_recipe, only: [:show, :edit, :update, :destroy]
+  before_action :set_recipe, only: %i[show edit update destroy]
   before_action :set_course, only: [:index]
   before_action :set_cuisine, only: [:index]
   before_action :set_safe_params, only: [:index]
-  before_action :authenticate_user!, except: [:show, :index]
+  before_action :authenticate_user!, except: %i[show index]
 
   # GET /recipes
   def index
@@ -29,7 +29,7 @@ class RecipesController < ApplicationController
     6.times do
       ingredient_group.ingredients.build
     end
-    instruction_group = @recipe.instruction_groups.build
+    @recipe.instruction_groups.build
     authorize @recipe, :new?
   end
 
@@ -67,6 +67,7 @@ class RecipesController < ApplicationController
   end
 
   private
+
     def set_account
       @account = Account.find_local!(params[:account_username])
     end
@@ -88,6 +89,6 @@ class RecipesController < ApplicationController
     end
 
     def recipe_params
-      params.require(:recipe).permit(:title, :info, :public, :search, :photo, :course_id, :cuisine_id, :preparation_time, :cooking_time, :servings, :source, ingredient_groups_attributes: [:id, :title, :_destroy, ingredients_attributes: %i[id title unit_id quantity _destroy]], instruction_groups_attributes: [:id, :title, :instructions, :_destroy])
+      params.require(:recipe).permit(:title, :info, :public, :search, :photo, :course_id, :cuisine_id, :preparation_time, :cooking_time, :servings, :source, ingredient_groups_attributes: [:id, :title, :_destroy, { ingredients_attributes: %i[id title unit_id quantity _destroy] }], instruction_groups_attributes: %i[id title instructions _destroy])
     end
 end
