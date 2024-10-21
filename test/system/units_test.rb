@@ -5,22 +5,22 @@ require "application_system_test_case"
 class UnitsTest < ApplicationSystemTestCase
   setup do
     @unit = units(:one)
+    sign_in users(:admin)
   end
 
   test "visiting the index" do
     visit units_url
-    assert_selector "h1", text: "Units"
+    assert_selector "h1", text: "Unit"
   end
 
   test "creating a Unit" do
     visit units_url
-    click_on "New Unit"
+    click_on "New"
 
     fill_in "Title", with: @unit.title
     click_on "Create Unit"
 
     assert_text "Unit was successfully created"
-    click_on "Back"
   end
 
   test "updating a Unit" do
@@ -31,7 +31,6 @@ class UnitsTest < ApplicationSystemTestCase
     click_on "Update Unit"
 
     assert_text "Unit was successfully updated"
-    click_on "Back"
   end
 
   test "destroying a Unit" do

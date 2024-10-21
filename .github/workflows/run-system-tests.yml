@@ -1,0 +1,51 @@
+name: System Tests
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+
+jobs:
+  test:
+
+    runs-on: ubuntu-latest
+
+    # Service containers to run with `runner-job`
+    services:
+      postgres:
+        image: postgres:16
+        # Provide the password for postgres
+        env:
+          POSTGRES_PASSWORD: postgres
+          POSTGRES_DB: dining-car_test
+        # Set health checks to wait until postgres has started
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+        ports:
+          # Maps tcp port 5432 on service container to the host
+          - 5432:5432
+    steps:
+    - uses: actions/checkout@v4
+    - name: Set up Ruby
+    # To automatically get bug fixes and new Ruby versions for ruby/setup-ruby,
+    # change this to (see https://github.com/ruby/setup-ruby#versioning):
+      uses: ruby/setup-ruby@v1
+      with:
+        bundler-cache: true # runs 'bundle install' and caches installed gems automatically
+    - uses: actions/setup-node@v4
+      with:
+        node-version: 20
+        cache: 'yarn'
+    - name: Install yarn packages
+      run: yarn install --frozen-lockfile
+    - name: pre-build assets
+      run: yarn build:css && yarn build
+    - name: Copy github env file
+      run: cp .env.github.test .env.test.local
+    - name: Setup the database
+      run: RAILS_ENV=test bundle exec rake db:setup
+    - name: Run tests
+      run: bundle exec rails test:system

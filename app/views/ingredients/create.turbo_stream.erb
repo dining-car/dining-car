@@ -1,0 +1,21 @@
+<%= fields model: @recipe do |f| %>
+  <%= f.fields_for :ingredient_groups, @ingredient_group, child_index: @ingredient_group_index do |ig_form| %>
+    <%= ig_form.fields_for :ingredients, @ingredient_group.ingredients.last, child_index: Time.now.to_i do |i_form| %>
+      <%= turbo_stream.replace "add-#{ig_form.index}-ingredient" do %>
+        <%= link_to ingredients_path(ingredient_group_index: ig_form.index, _method: "post"),
+          data: {turbo_method: :post, turbo_stream: true},
+          id: "add-#{ig_form.index}-ingredient",
+          class: "button is-info add_fields" do %>
+            <span class="icon">
+              <i class="fa fa-plus-circle"></i>
+            </span>
+            <span><%= t('.add_ingredient')%></span>
+          <% end %>
+        <% end %>
+
+      <%= turbo_stream.before "#{ig_form.index}_ingredients" do %>
+        <% render "recipes/ingredient_fields", f: i_form, ig_idx: ig_form.index %>
+      <% end %>
+    <% end %>
+  <% end %>
+<% end %>

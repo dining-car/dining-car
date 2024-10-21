@@ -1,4 +1,4 @@
-<div class="ingredient-group-nested-fields box">
+<div class="ingredient-group-nested-fields box" id="ingredient_group_<%= f.index %>">
   <div class="field is-horizontal">
     <div class="field-label is-normal">
       <%= f.label t('.group_title'), class: 'label' %>
@@ -6,12 +6,14 @@
     <div class="field-body">
       <div class="field">
         <div class="control is-expanded">
-          <%= f.text_field :title, class: 'input is-fullwidth' %>
+          <%= f.text_field :title, class: 'input is-fullwidth', placeholder: 'batter ingredients' %>
         </div>
       </div>
       <div class="field is-narrow">
         <div class="control">
-          <%= link_to_remove_association f, wrapper_class: 'ingredient-group-nested-fields', class: 'button is-danger is-outlined' do %>
+          <%= link_to ingredient_group_path(f.index),
+            data: {turbo_method: :delete, turbo_stream: true},
+            class: 'button is-danger is-outlined' do %>
           <span><%= t('.delete_ingredient_group') %></span>
           <span class="icon is-small">
             <i class="fa fa-times"></i>
@@ -22,14 +24,17 @@
     </div>
   </div>
   <%= f.fields_for :ingredients do |i_form| %>
-  <% render 'ingredient_fields', f: i_form %>
+    <% render 'recipes/ingredient_fields', f: i_form , ig_idx: f.index%>
   <% end %>
-  <div class="buttons has-addons is-right">
-    <%= link_to_add_association f, :ingredients, class: 'button is-info' do %>
-    <span class="icon">
-      <i class="fa fa-plus-circle"></i>
-    </span>
-    <span><%= t('.add_ingredient')%></span>
+  <div id="<%= f.index%>_ingredients" class="buttons has-addons is-right">
+    <%= link_to ingredients_path(ingredient_group_index: f.index, _method: "post"),
+      data: {turbo_method: :post, turbo_stream: true},
+      id: "add-#{f.index}-ingredient",
+    class: "button is-info add_fields" do %>
+      <span class="icon">
+        <i class="fa fa-plus-circle"></i>
+      </span>
+      <span><%= t('.add_ingredient')%></span>
     <% end %>
   </div>
 </div>

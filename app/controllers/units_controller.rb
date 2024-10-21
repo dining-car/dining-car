@@ -33,7 +33,7 @@ class UnitsController < ApplicationController
     if @unit.save
       redirect_to @unit, notice: "Unit was successfully created."
     else
-      render :new
+      render :new, status: :unprocessable_entity
     end
   end
 
@@ -43,7 +43,7 @@ class UnitsController < ApplicationController
     if @unit.update(unit_params)
       redirect_to @unit, notice: "Unit was successfully updated."
     else
-      render :edit
+      render :edit, status: :unprocessable_entity
     end
   end
 
@@ -51,10 +51,11 @@ class UnitsController < ApplicationController
   def destroy
     authorize @unit, :destroy?
     @unit.destroy
-    redirect_to units_url, notice: "Unit was successfully destroyed."
+    redirect_to units_url, notice: "Unit was successfully destroyed.", status: :see_other
   end
 
   private
+
     # Use callbacks to share common setup or constraints between actions.
     def set_unit
       @unit = Unit.find(params[:id])

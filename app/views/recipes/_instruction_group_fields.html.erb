@@ -1,4 +1,4 @@
-<div class="instruction-group-nested-fields box">
+<div class="instruction-group-nested-fields box" id="instruction_group_<%= f.index %>">
   <div class="field is-horizontal">
     <div class="field-label is-normal">
       <%= f.label t('.group_title'), class: 'label' %>
@@ -11,7 +11,9 @@
       </div>
       <div class="field is-narrow">
         <div class="control">
-          <%= link_to_remove_association f, wrapper_class: 'instruction-group-nested-fields', class: 'button is-danger is-outlined' do %>
+          <%= link_to instruction_group_path(f.index),
+            data: {turbo_method: :delete, turbo_stream: true},
+            class: 'button is-danger is-outlined' do %>
           <span><%= t('.delete_instruction_group') %></span>
           <span class="icon is-small">
             <i class="fa fa-times"></i>

@@ -1,0 +1,19 @@
+<%= fields model: @recipe do |f| %>
+  <%= f.fields_for :ingredient_groups, @recipe.ingredient_groups.last, child_index: Time.now.to_i do |ig_form| %>
+    <%= turbo_stream.replace "add-ingredient-group" do %>
+      <%= link_to ingredient_groups_path,
+        data: {turbo_method: :post, turbo_stream: true},
+        id: "add-ingredient-group",
+      class: "button is-info" do %>
+      <span class="icon">
+        <i class="fa fa-plus-circle"></i>
+      </span>
+      <span><%= t('.add_ingredient_group')%></span>
+      <% end %>
+    <% end %>
+
+    <%= turbo_stream.before "ingredient_group_links" do %>
+      <% render "recipes/ingredient_group_fields", f: ig_form %>
+    <% end %>
+  <% end %>
+<% end %>

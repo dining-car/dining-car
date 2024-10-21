@@ -33,7 +33,7 @@ class CoursesController < ApplicationController
     if @course.save
       redirect_to @course, notice: "Course was successfully created."
     else
-      render :new
+      render :new, status: :unprocessable_entity
     end
   end
 
@@ -43,7 +43,7 @@ class CoursesController < ApplicationController
     if @course.update(course_params)
       redirect_to @course, notice: "Course was successfully updated."
     else
-      render :edit
+      render :edit, status: :unprocessable_entity
     end
   end
 
@@ -51,7 +51,7 @@ class CoursesController < ApplicationController
   def destroy
     authorize @course, :destroy?
     @course.destroy
-    redirect_to courses_url, notice: "Course was successfully destroyed."
+    redirect_to courses_url, notice: "Course was successfully destroyed.", status: :see_other
   end
 
   private

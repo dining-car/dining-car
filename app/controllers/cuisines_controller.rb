@@ -31,9 +31,10 @@ class CuisinesController < ApplicationController
     authorize @cuisine, :create?
 
     if @cuisine.save
-      redirect_to @cuisine, notice: "Cuisine was successfully created."
+      flash[:success] = "Cuisine was successfully created."
+      redirect_to @cuisine
     else
-      render :new
+      render :new, status: :unprocessable_entity
     end
   end
 
@@ -41,9 +42,10 @@ class CuisinesController < ApplicationController
   def update
     authorize @cuisine, :update?
     if @cuisine.update(cuisine_params)
-      redirect_to @cuisine, notice: "Cuisine was successfully updated."
+      flash[:success] = "Cuisine was successfully updated."
+      redirect_to @cuisine
     else
-      render :edit
+      render :edit, status: :unprocessable_entity
     end
   end
 
@@ -51,7 +53,7 @@ class CuisinesController < ApplicationController
   def destroy
     authorize @cuisine, :destroy?
     @cuisine.destroy
-    redirect_to cuisines_url, notice: "Cuisine was successfully destroyed."
+    redirect_to cuisines_url, notice: "Cuisine was successfully destroyed.", status: :see_other
   end
 
   private
