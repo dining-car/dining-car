@@ -82,6 +82,8 @@ group :development, :test do
   gem "rubocop", require: false
   gem "rubocop-performance", require: false
   gem "rubocop-rails", require: false
+  gem "rubocop-rake", require: false # A rubocop extension for Rakefiles
+  gem "rubocop-yard", require: false # A rubocop extension for yard documentation
 
   gem "faker"
   # detects missing locale files, normalize translations, etc

@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class AccountsController < ApplicationController
-  before_action :set_account, only: [:show]
+  before_action :set_account, only: %i[show]
 
   # GET /accounts/1
   def show
@@ -12,6 +12,7 @@ class AccountsController < ApplicationController
   end
 
   private
+
     def set_account
       @account = Account.find_local!(params[:username])
     end
