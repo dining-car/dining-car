@@ -4,8 +4,8 @@ require "fileutils"
 # path to your application root.
 APP_ROOT = File.expand_path("..", __dir__)
 
-def system!(*args)
-  system(*args) || abort("\n== Command #{args} failed ==")
+def system!(*args) # rubocop:disable Style/DocumentationMethod, Style/ArgumentsForwarding
+  system(*args, exception: true) # rubocop:disable Style/ArgumentsForwarding
 end
 
 FileUtils.chdir APP_ROOT do

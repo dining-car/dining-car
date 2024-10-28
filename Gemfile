@@ -2,9 +2,8 @@
 
 source "https://rubygems.org"
 
-
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
-gem "rails", "~> 7.0.1"
+gem "rails", "~> 7.1.0"
 
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem "sprockets-rails"
@@ -83,6 +82,8 @@ group :development, :test do
   gem "rubocop", require: false
   gem "rubocop-performance", require: false
   gem "rubocop-rails", require: false
+  gem "rubocop-rake", require: false # A rubocop extension for Rakefiles
+  gem "rubocop-yard", require: false # A rubocop extension for yard documentation
 
   gem "faker"
   # detects missing locale files, normalize translations, etc
