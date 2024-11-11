@@ -61,7 +61,7 @@ gem "babosa" # used with friendly_id to generate unicode slugs
 gem "active_storage_validations" # add validations to activestorage
 gem "mini_magick" # used for image operations with activestorage
 
-gem "aws-sdk-s3", "~> 1.169", require: false # used in case media is stored in S3, minio or similar
+gem "aws-sdk-s3", "~> 1.170", require: false # used in case media is stored in S3, minio or similar
 
 gem "image_processing", ">= 1.2" # Used for image analysis and transformation, seems to not be needed on newer rails
 
