@@ -35,14 +35,6 @@ jobs:
       uses: ruby/setup-ruby@v1
       with:
         bundler-cache: true # runs 'bundle install' and caches installed gems automatically
-    - uses: actions/setup-node@v4
-      with:
-        node-version: 20
-        cache: 'yarn'
-    - name: Install yarn packages
-      run: yarn install --frozen-lockfile
-    - name: pre-build assets
-      run: yarn build:css && yarn build
     - name: Copy github env file
       run: cp .env.github.test .env.test.local
     - name: Setup the database
