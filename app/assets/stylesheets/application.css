@@ -1,0 +1,81 @@
+/*
+ * This is a manifest file that'll be compiled into application.css.
+ *
+ * With Propshaft, assets are served efficiently without preprocessing steps. You can still include
+ * application-wide styles in this file, but keep in mind that CSS precedence will follow the standard
+ * cascading order, meaning styles declared later in the document or manifest will override earlier ones,
+ * depending on specificity.
+ *
+ * Consider organizing styles into separate files for maintainability.
+ */
+
+@import "https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css";
+@import "https://cdn.jsdelivr.net/npm/fork-awesome@1.1.0/css/fork-awesome.min.css";
+
+.hero.is-login {
+  background: #ffffff;
+}
+
+.ellipsed-title {
+  overflow: hidden;
+  position: relative;
+  line-height: 1.5em;
+  max-height: 3em;
+  text-align: justify;
+  margin-right: 0;
+  padding-right: 1em;
+}
+.ellipsed-title::before {
+  content: "…";
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+.ellipsed-title::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  width: 1em;
+  height: 1em;
+  margin-top: 0.2em;
+  background: #ffffff;
+}
+
+.ellipsed-info {
+  overflow: hidden;
+  position: relative;
+  line-height: 1.5em;
+  max-height: 4.5em;
+  text-align: justify;
+  margin-right: 0;
+  padding-right: 1em;
+}
+.ellipsed-info::before {
+  content: "…";
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+.ellipsed-info::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  width: 1em;
+  height: 1em;
+  margin-top: 0.2em;
+  background: #ffffff;
+}
+
+.subtitle.ellipsed-title {
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: -0.4px;
+}
+
+.recipe-description p {
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: -0.4px;
+}
+
+@import "recipes"

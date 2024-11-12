@@ -1,0 +1,13 @@
+.recipe-photo {
+  background-color: #ffffff;
+  height: 500px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.i-links,
+.ig-links {
+  margin-top: 12px;
+  margin-bottom: 12px;
+}
