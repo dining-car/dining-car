@@ -268,7 +268,7 @@ GEM
     psych (5.1.2)
       stringio
     public_suffix (6.0.1)
-    puma (6.4.3)
+    puma (6.5.0)
       nio4r (~> 2.0)
     pundit (2.4.0)
       activesupport (>= 3.0.0)
@@ -428,7 +428,7 @@ DEPENDENCIES
   pronto (~> 0.11)
   pronto-rubocop
   propshaft
-  puma (~> 6.4)
+  puma (~> 6.5)
   pundit
   rails (~> 8.0.0)
   rubocop
