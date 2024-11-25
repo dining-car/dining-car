@@ -345,7 +345,7 @@ GEM
       rubocop-ast (>= 1.31.1, < 2.0)
     rubocop-rake (0.6.0)
       rubocop (~> 1.0)
-    rubocop-yard (0.9.3)
+    rubocop-yard (0.10.0)
       rubocop (~> 1.21)
       yard
     ruby-progressbar (1.13.0)
