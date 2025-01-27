@@ -1,6 +1,10 @@
 # frozen_string_literal: true
 
-require "test_helper"
+require_relative "test_helper"
+
+Capybara.configure do |config|
+  config.server = :falcon_http
+end
 
 class ApplicationSystemTestCase < ActionDispatch::SystemTestCase
   include Devise::Test::IntegrationHelpers

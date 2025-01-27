@@ -13,8 +13,8 @@ gem "propshaft"
 # Use postgresql as the database for Active Record
 gem "pg", "~> 1.5"
 
-# Use the Puma web server [https://github.com/puma/puma]
-gem "puma", "~> 6.5"
+# Use falcon as the webserver [https://socketry.github.io/falcon/]
+gem "falcon", "~> 0.48"
 
 # Use JavaScript with ESM import maps [https://github.com/rails/importmap-rails]
 gem "importmap-rails"
@@ -87,6 +87,8 @@ end
 group :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
   gem "capybara"
+  gem "falcon-capybara"
+
   gem "selenium-webdriver"
   gem "simplecov"
 end
