@@ -16,6 +16,7 @@ class RecipeIndexQuery
     else
       @relation = @relation.with_private_for_account(user.account)
     end
+    @relation = @relation.with_attached_photo
     @relation = @relation.search_for(search_query) if search_query
     @relation = @relation.with_course(course) if course
     @relation = @relation.with_cuisine(cuisine) if cuisine
