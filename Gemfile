@@ -41,7 +41,7 @@ gem "bootsnap", require: false
 gem "image_processing", "~> 1.2"
 
 gem "devise", "~> 4" # authentication
-gem "devise-i18n", "~> 1.9"
+gem "devise-i18n", "~> 1.13"
 
 gem "kaminari" # used for pagination
 
