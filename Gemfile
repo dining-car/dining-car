@@ -14,7 +14,7 @@ gem "propshaft"
 gem "pg", "~> 1.5"
 
 # Use falcon as the webserver [https://socketry.github.io/falcon/]
-gem "falcon", "~> 0.50"
+gem "falcon", "~> 0.51"
 
 # Use JavaScript with ESM import maps [https://github.com/rails/importmap-rails]
 gem "importmap-rails"
