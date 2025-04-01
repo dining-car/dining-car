@@ -270,7 +270,7 @@ GEM
       launchy (>= 2.2, < 4)
     lint_roller (1.1.0)
     localhost (1.4.2)
-    logger (1.6.6)
+    logger (1.7.0)
     loofah (2.24.0)
       crass (~> 1.0.2)
       nokogiri (>= 1.12.0)
@@ -284,7 +284,7 @@ GEM
     matrix (0.4.2)
     memory-leak (0.5.2)
     metrics (0.12.2)
-    mini_magick (5.1.2)
+    mini_magick (5.2.0)
       benchmark
       logger
     mini_mime (1.1.5)
