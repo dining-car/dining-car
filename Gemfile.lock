@@ -270,7 +270,7 @@ GEM
       launchy (>= 2.2, < 4)
     lint_roller (1.1.0)
     localhost (1.4.2)
-    logger (1.6.6)
+    logger (1.7.0)
     loofah (2.24.0)
       crass (~> 1.0.2)
       nokogiri (>= 1.12.0)
@@ -288,7 +288,7 @@ GEM
       benchmark
       logger
     mini_mime (1.1.5)
-    minitest (5.25.4)
+    minitest (5.25.5)
     msgpack (1.7.2)
     multi_xml (0.7.1)
       bigdecimal (~> 3.1)
@@ -346,7 +346,7 @@ GEM
       date
       stringio
     public_suffix (6.0.1)
-    pundit (2.4.0)
+    pundit (2.5.0)
       activesupport (>= 3.0.0)
     racc (1.8.1)
     rack (3.1.12)
