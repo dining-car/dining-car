@@ -1,8 +1,9 @@
-require:
+plugins:
   - rubocop-performance
   - rubocop-rake
   - rubocop-rails
   - rubocop-yard
+
 AllCops:
   NewCops: enable
   DisplayStyleGuide: true
