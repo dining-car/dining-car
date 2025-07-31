@@ -11,7 +11,7 @@ gem "rails", "~> 8.0.2"
 gem "propshaft"
 
 # Use postgresql as the database for Active Record
-gem "pg", "~> 1.5"
+gem "pg", "~> 1.6"
 
 # Use falcon as the webserver [https://socketry.github.io/falcon/]
 gem "falcon", "~> 0.51"
