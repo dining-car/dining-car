@@ -291,7 +291,7 @@ GEM
     matrix (0.4.2)
     memory-leak (0.5.2)
     metrics (0.13.0)
-    mini_magick (5.3.0)
+    mini_magick (5.3.1)
       logger
     mini_mime (1.1.5)
     minitest (5.25.5)
