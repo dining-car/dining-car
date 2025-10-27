@@ -53,7 +53,7 @@ gem "friendly_id", "~> 5.5.1" # generate slugs for recipes
 gem "active_storage_validations" # add validations to activestorage
 gem "mini_magick" # used for image operations with activestorage
 
-gem "aws-sdk-s3", "~> 1.200", require: false # used in case media is stored in S3, minio or similar
+gem "aws-sdk-s3", "~> 1.201", require: false # used in case media is stored in S3, minio or similar
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
