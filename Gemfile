@@ -5,7 +5,7 @@ source "https://rubygems.org"
 ruby file: ".ruby-version"
 
 # The framework
-gem "rails", "~> 8.1.0"
+gem "rails", "~> 8.1.1"
 
 # The modern asset pipeline for Rails [https://github.com/rails/propshaft]
 gem "propshaft"
