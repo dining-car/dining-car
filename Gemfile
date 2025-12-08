@@ -48,7 +48,7 @@ gem "kaminari" # used for pagination
 gem "pundit" # authorization
 
 gem "babosa" # used with friendly_id to generate unicode slugs
-gem "friendly_id", "~> 5.5.1" # generate slugs for recipes
+gem "friendly_id", "~> 5.6.0" # generate slugs for recipes
 
 gem "active_storage_validations" # add validations to activestorage
 gem "mini_magick" # used for image operations with activestorage
