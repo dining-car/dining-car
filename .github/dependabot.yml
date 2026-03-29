@@ -8,6 +8,8 @@ updates:
       rubocop:
         patterns:
           - "rubocop*"
+      rails:
+        patterns: [ "rail*", "active*", "action*" ]
     open-pull-requests-limit: 10
   - package-ecosystem: github-actions
     directory: "/"
