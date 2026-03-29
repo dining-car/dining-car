@@ -180,7 +180,7 @@ GEM
     drb (2.2.3)
     erb (6.0.2)
     erubi (1.13.1)
-    faker (3.6.0)
+    faker (3.6.1)
       i18n (>= 1.8.11, < 2)
     falcon (0.55.2)
       async
